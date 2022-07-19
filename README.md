@@ -14,8 +14,9 @@ Steps :
  - [ ] Windows 10/11 up to date
  - [ ] Command line prompt knowledge
  - [ ] 21 minutes (most of it is the download OS debian)
+ - [ ] putty or MobaXterm
 
-###  in command prompt cmd (as administrator)
+#### in command prompt cmd (as administrator)
 ```
 # in commandline (cmd.exe)
 wsl --install -d debian
@@ -23,17 +24,18 @@ wsl --setdefault debian
 ```
 
 
-### verify version and state
+
+#### verify version and state
 ```
 wsl --verbose --list
 ```
 
-### optional - to terminate an instance (if you have many)
+##### optional - to terminate an instance (if you have many)
 ```
 wsl -t debian
 ```
 
-### config debian
+#### config debian
 ```bash
 # edit file
 sudo nano /etc/resolv.conf
@@ -47,19 +49,17 @@ or
 sudo echo "nameserver 151.110.50.210" >> /etc/resolv.conf
 ```
 
-
-
-### update OS
+#### update OS
 ```
 $ sudo apt update; sudo apt upgrade -y
 ```
 
-### install tools
+#### install tools
 ```bash
 $ sudo apt install -y git htop openssh-server
 ```
 
-### config git
+#### config git
 ```bash
 $ nano .gitconfig
 ```
@@ -75,12 +75,12 @@ $ nano .gitconfig
         proxy = http://proxy.etn.com:8080
 ```
 
-### test git clone
+#### test git clone
 ```
 $ git clone https://github.com/guyfrancoeur/ciclad.git
 ```
 
-### verify config of sshd
+#### verify config of sshd
 ```
 ss -ltmp
 
@@ -89,3 +89,5 @@ service ssh status
 service ssh stop
 service ssh start
 ```
+
+#### connect using putty on 127.0.0.1
