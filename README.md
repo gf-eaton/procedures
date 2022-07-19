@@ -11,9 +11,9 @@ Steps :
  5. Config Apps
 
 ### requirements
- [ ] Windows 10/11 up to date
- [ ] Command line prompt knowledge
- [ ] 21 minutes (most of it is the download OS debian)
+ - [ ] Windows 10/11 up to date
+ - [ ] Command line prompt knowledge
+ - [ ] 21 minutes (most of it is the download OS debian)
 
 ###  in command prompt cmd (as administrator)
 ```
