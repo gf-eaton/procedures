@@ -10,6 +10,11 @@ Steps :
  4. Updating OS, Install Apps
  5. Config Apps
 
+### requirements
+ [ ] Windows 10/11 up to date
+ [ ] Command line prompt knowledge
+ [ ] 21 minutes (most of it is the download OS debian)
+
 ###  in command prompt cmd (as administrator)
 ```
 # in commandline (cmd.exe)
@@ -18,12 +23,12 @@ wsl --setdefault debian
 ```
 
 
-### Verify version and state
+### verify version and state
 ```
 wsl --verbose --list
 ```
 
-### optional - To terminate an instance
+### optional - to terminate an instance (if you have many)
 ```
 wsl -t debian
 ```
@@ -44,12 +49,12 @@ sudo echo "nameserver 151.110.50.210" >> /etc/resolv.conf
 
 
 
-### update and install
+### update OS
 ```
 $ sudo apt update; sudo apt upgrade -y
 ```
 
-
+### install tools
 ```bash
 $ sudo apt install -y git htop openssh-server
 ```
@@ -70,12 +75,12 @@ $ nano .gitconfig
         proxy = http://proxy.etn.com:8080
 ```
 
-### Test clone
+### test git clone
 ```
 $ git clone https://github.com/guyfrancoeur/ciclad.git
 ```
 
-### Verify config of sshd
+### verify config of sshd
 ```
 ss -ltmp
 
