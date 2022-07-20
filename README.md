@@ -93,6 +93,13 @@ service ssh status
 
 service ssh stop
 service ssh start
+
+ip addr
 ```
 
-#### connect using putty on 127.0.0.1
+#### connect using putty on 127.0.0.1 or eth0 or windows-key "debian"
+
+to see the network ip address use 
+```
+ip addr | grep eth0
+```
