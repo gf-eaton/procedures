@@ -18,9 +18,9 @@ sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpat
 
 ### Clone poky
 ```
-git clone git://git.yoctoproject.org/poky
+git clone https://git.yoctoproject.org/poky
 ```
 or
 ```
-git clone -b kirkstone git://git.yoctoproject.org/poky
+git clone -b kirkstone https://git.yoctoproject.org/poky
 ```
