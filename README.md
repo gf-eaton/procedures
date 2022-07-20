@@ -36,17 +36,18 @@ wsl -t debian
 ```
 
 #### config debian
-```bash
-# edit file
-sudo nano /etc/resolv.conf
-# copy and paste the following
-nameserver 151.110.50.210
+
+##### optional : change root password (required for su - command)
+```
+sudo passwd root
 ```
 
-or
-
+##### important fixes in /etc/resolv.conf and /etc/wsl.conf
 ```bash
-sudo echo "nameserver 151.110.50.210" >> /etc/resolv.conf
+su -
+echo "nameserver 151.110.50.210" > /etc/resolv.conf
+echo "[network]" > /etc/wsl.conf
+echo "generateResolvConf = false" >> /etc/wsl.conf
 ```
 
 #### update OS
