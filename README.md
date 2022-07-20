@@ -30,9 +30,13 @@ wsl --setdefault debian
 wsl --verbose --list
 ```
 
-##### optional - to terminate an instance (if you have many)
+##### optional - to terminate an instance
 ```
 wsl -t debian
+```
+##### optional - to start an instance
+```
+wsl -d debian
 ```
 
 #### config debian
