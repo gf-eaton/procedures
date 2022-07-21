@@ -13,12 +13,15 @@ Steps :
 ### requirements
  - [ ] Windows 10/11 up to date
  - [ ] Command line prompt knowledge
- - [ ] 21 minutes (most of it is the download OS debian)
- - [ ] putty or MobaXterm
+ - [ ] 17 minutes (most of it is the download OS debian)
+ - [ ] putty or MobaXterm (for ssh
 
 #### in command prompt cmd (as administrator)
 ```
 # in commandline (cmd.exe)
+REM fastest way remove everything
+wsl --unregister -d debian
+REM Fresh install lastest
 wsl --install -d debian
 wsl --setdefault debian
 ```
@@ -54,13 +57,7 @@ echo "generateResolvConf = false" >> /etc/wsl.conf
 
 #### update OS
 ```
-$ sudo apt update; sudo apt upgrade -y
-```
-
-#### install tools
-```bash
-sudo apt install -y git htop nano
-sudo apt install -y openssh-server
+sudo apt update; sudo apt upgrade -y ; sudo apt install -y git htop nano openssh-server
 ```
 
 #### config git
@@ -79,9 +76,10 @@ $ nano .gitconfig
         proxy = http://proxy.etn.com:8080
 ```
 
-#### test git clone
+#### test git clone Yocto project (Poky)
 ```
-$ git clone https://github.com/guyfrancoeur/ciclad.git
+git clone -b kirkstone https://git.yoctoproject.org/poky
+
 ```
 
 #### verify config of sshd
