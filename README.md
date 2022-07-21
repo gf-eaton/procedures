@@ -23,8 +23,6 @@ wsl --install -d debian
 wsl --setdefault debian
 ```
 
-
-
 #### verify version and state
 ```
 wsl --verbose --list
