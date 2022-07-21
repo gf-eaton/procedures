@@ -59,7 +59,8 @@ $ sudo apt update; sudo apt upgrade -y
 
 #### install tools
 ```bash
-$ sudo apt install -y git htop openssh-server
+sudo apt install -y git htop nano
+sudo apt install -y openssh-server
 ```
 
 #### config git
