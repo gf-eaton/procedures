@@ -50,9 +50,11 @@ sudo passwd root
 ##### important fixes in /etc/resolv.conf and /etc/wsl.conf
 ```bash
 su -
+rm /etc/resolv.conf
 echo "nameserver 151.110.50.210" > /etc/resolv.conf
 echo "[network]" > /etc/wsl.conf
 echo "generateResolvConf = false" >> /etc/wsl.conf
+chattr +i /etc/resolv.conf
 ```
 
 #### update OS
