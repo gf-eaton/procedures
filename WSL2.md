@@ -13,7 +13,7 @@ Steps :
 ### requirements
  - [ ] Windows 10/11 up to date
  - [ ] Command line prompt knowledge
- - [ ] 17 minutes (most of it is the download OS debian)
+ - [ ] 17 minutes (most of it for download OS the first time only)
  - [ ] putty or MobaXterm (for ssh connectivity)
 
 #### in command prompt cmd (as administrator)
