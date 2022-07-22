@@ -1,19 +1,20 @@
 # wsl-debian
 HOW to install and work with WSL (Debian)
 
+Duration : 17 minutes (most of it for downloading the OS the first time only)
+
 ## Installing WSL with distro Debian
 
 Steps :
- 1. Requirements
- 2. Installing
- 3. Config DNS resolution
+ 1. Meet requirements
+ 2. Installing WSL 2
+ 3. Config DNS resolution in Linux
  4. Updating OS, Install Apps
  5. Config Apps
 
 ### requirements
  - [ ] Windows 10/11 up to date
  - [ ] Command line prompt knowledge
- - [ ] 17 minutes (most of it for downloading the OS the first time only)
  - [ ] putty or MobaXterm (for ssh connectivity)
 
 #### in command prompt cmd (as administrator)
@@ -21,6 +22,7 @@ Steps :
 # in commandline (cmd.exe)
 REM fastest way remove everything
 wsl --unregister -d debian
+
 REM Fresh install lastest
 wsl --install -d debian
 wsl --setdefault debian
