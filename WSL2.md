@@ -14,7 +14,7 @@ Steps :
  - [ ] Windows 10/11 up to date
  - [ ] Command line prompt knowledge
  - [ ] 17 minutes (most of it is the download OS debian)
- - [ ] putty or MobaXterm (for ssh
+ - [ ] putty or MobaXterm (for ssh connectivity)
 
 #### in command prompt cmd (as administrator)
 ```
