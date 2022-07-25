@@ -43,5 +43,5 @@ cd vcpkg
       + Valid OS names are `windows`, `linux`
 
  3. Enable vcpkg packages to be used in VS/MSBuild:
-  - Run `vcpkg integrate install`
-  - copy the path to vcpkg.cmake for use later
+  - in cmd.exe Run : `vcpkg integrate install`
+  - copy the path to vcpkg.cmake for use later similar to `-DCMAKE_TOOLCHAIN_FILE=C:/Users/E0001234/zsource/vcpkg/scripts/buildsystems/vcpkg.cmake`
