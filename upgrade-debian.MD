@@ -2,7 +2,13 @@
 
 This process is 25 minutes and will ask you to restart services.
 
-## WHY upgrade debian : Because you wnat to get the newer compiler and lastest dev library and remove old unsecured stuff.
+## WHY upgrade debian : Because you want to get the newer compiler and lastest dev library and remove old unsecured stuff.
+
+check the version you have
+```
+cat /etc/os-release
+```
+if you have version 9 upgrade to 10 first then to 11
 
 ### to debian 10
 ```
