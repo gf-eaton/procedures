@@ -1,7 +1,7 @@
 # how to setup Raspberry pi using Raspbian with proxy
 
-Prerequisits : Raspbian
-Duration : 8 minutes
+- Prerequisits : Raspbian
+- Duration : 8 minutes
 
 ### Step 1 : Setup proxy info
 
