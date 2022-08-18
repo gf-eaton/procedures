@@ -38,4 +38,4 @@ nvm install node
 ```
 
 ---
-by gf 2002
+by gf 2022 MIT
