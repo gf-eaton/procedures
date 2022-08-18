@@ -1,4 +1,4 @@
-# wsl-debian
+# WSL2-debian with git for native cross platform compilation from Visual Studio Pro
 HOW to install and work with WSL (Debian)
 
 Duration : 17 minutes (most of it for downloading the OS the first time only)
@@ -9,8 +9,8 @@ Steps :
  1. Meet requirements
  2. Installing WSL 2
  3. Config DNS resolution in Linux
- 4. Updating OS, Install Apps
- 5. Config Apps
+ 4. Updating OS, Install Apps (git)
+ 5. Config Apps (git)
 
 ### requirements
  - [ ] Windows 10/11 up to date
@@ -99,3 +99,5 @@ ip addr | grep eth0
 
 cat /etc/os-release
 ```
+---
+by gf 2022 MIT
