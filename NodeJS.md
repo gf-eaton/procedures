@@ -1,5 +1,9 @@
 # How to install NodeJS via Node Version Manager (nvm)
 
+Prerequisit : WSL2 with debian 11
+
+Duration : 8 minutes (most of it for downloading)
+
 ### nvm install
 
 ```
