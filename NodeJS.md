@@ -10,11 +10,15 @@ Duration : 8 minutes (most of it for downloading)
 wget -qO- --no-check-certificate https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 ```
 
-close terminal window and reopen so the path are updated
+close terminal window and reopen so the `PATH` get refreshed.
 
 ```
 nvm --version
 ```
+
+### Only if
+
+`nvm ls-remote` return `N/A`
 
 Ok at this point you need to fix the `~/.nvm/nvm.sh` because certificates may not be helping
 
