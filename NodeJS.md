@@ -37,5 +37,10 @@ nvm ls-remote
 nvm install node
 ```
 
+```
+node --version
+npm --version
+```
+
 ---
 by gf 2022 MIT
