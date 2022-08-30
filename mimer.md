@@ -1,4 +1,4 @@
-# How to install miner SQL
+# How to install mimer SQL
 
 ### Check kernel version
 
