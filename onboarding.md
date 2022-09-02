@@ -16,10 +16,11 @@
     - [University](https://eatonuniversity.sumtotal.host/rcore/c/dash/MLAD/ENG?isDeepLink=1)
  2. Compplete these task (JOE must be open for SSO to work)
     - Request local Admin [read](https://confluence-prod.tcc.etn.com/pages/viewpage.action?pageId=206014628) proceed [here](http://eiam.tcc.etn.com/identity/?_adf.ctrl-state=gfu6snh9m_1&_afrLoop=6357781218272717)
-    - Request x$ [JIRA](http://itsc7.tcc.etn.com/ServiceCatalog/navigation.do?go=submission&dashboard=tl%3A2%7Cmc%3A1%7Cc%3A75%7Ct%3A0)
-    - Request x$ [MSDN/VS2022 Pro](http://itsc7.tcc.etn.com/ServiceCatalog/navigation.do?go=sd&entry=000000000075952)
-    - Request x$ ~~[DevOps](./)~~
-    - Request x$ [Confluence](http://itsc7.tcc.etn.com/ServiceCatalog/navigation.do?go=submission&dashboard=tl%3A2%7Cmc%3A1%7Cc%3A75%7Ct%3A3)
+    - Request access x$ [JIRA](http://itsc7.tcc.etn.com/ServiceCatalog/navigation.do?go=submission&dashboard=tl%3A2%7Cmc%3A1%7Cc%3A75%7Ct%3A0)
+    - Request access x$ [DevOps EESSD TBD](./)
+    - Request access 0$ [Github temporary](https://github.com/etn-electrical/PXMCEA-Utils/)
+    - Request access x$ [Confluence](http://itsc7.tcc.etn.com/ServiceCatalog/navigation.do?go=submission&dashboard=tl%3A2%7Cmc%3A1%7Cc%3A75%7Ct%3A3)
+    - Request license x$ [MSDN/VS2022 Pro](http://itsc7.tcc.etn.com/ServiceCatalog/navigation.do?go=sd&entry=000000000075952)
     - Optional request 320$ [Miro](http://itsc7.tcc.etn.com/ServiceCatalog/navigation.do?go=sd&entry=000000000082951)
 
 ### After first week
@@ -40,15 +41,20 @@
 #### Nice to have
  - [Avatar maker](https://avatarmaker.com/)
 
-#### Tools required
+#### Tools required (minimal version listed)
 
+##### Free
  - [ ] Git-2.37.1-64-bit
  - [ ] Anaconda3-2022.05-Windows-x86_64
  - [ ] VSCodeUserSetup-x64-1.69.2
+ - [ ] [Azure CLI for Windows 2.39](https://aka.ms/installazurecliwindows)
  - [ ] Postman-win64-9.24.2-Setup
  - [ ] cmake-3.24.0-rc4-windows-x86_64
  - [ ] putty x64
+ - [ ] mobaXterm lastest (putty is similar)
 
+##### Commercial
+ - [ ] Visual Studio PRO
 ---
-Last update 2022-07-26 18:22
+Last update 2022-09-01 16:06
 
