@@ -26,8 +26,7 @@ sudo service cron start
 type `sudo crontab -e` add the folowing lines
 
 ```
-@reboot /usr/bin/mkfifo /var/tmp/iot.pipe
-@reboot /usr/bin/mkfifo /var/tmp/telemetry.pipe
+@reboot /usr/bin/mkfifo /var/tmp/iot.pipe /var/tmp/ui.pipe
 ```
 
 reboot your linux
