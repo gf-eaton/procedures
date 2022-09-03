@@ -61,7 +61,7 @@ cd
 rm -fr /opt/dotnet
 wget -nc https://download.visualstudio.microsoft.com/download/pr/901f7928-5479-4d32-a9e5-ba66162ca0e4/d00b935ec4dc79a27f5bde00712ed3d7/dotnet-sdk-6.0.400-linux-arm64.tar.gz
 echo "please wait this may take a minute or two ..."
-mkdir -p /opt/dotnet && tar zxf dotnet-sdk-6.0.400-linux-arm64.tar.gz -C /opt/dotnet
+sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet-sdk-6.0.400-linux-arm64.tar.gz -C /opt/dotnet
 cd
 grep "export PATH=$PATH:/opt/dotnet" .bashrc
 if [ $? -eq 1 ] ; then
