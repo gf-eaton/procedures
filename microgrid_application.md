@@ -26,7 +26,7 @@ Before you start :
 4. Mimer SQL
 5. System cron
 
-copy/paste the code in `nano runme.sh` then `sudo bash ./runme.sh`
+call using `sudo wget https://github.com/gf-eaton/procedures/blob/main/pxmcea-v1.sh | -`
 ```
 #!/bin/bash
 #
