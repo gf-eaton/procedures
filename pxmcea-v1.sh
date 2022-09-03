@@ -1,10 +1,11 @@
 #!/bin/bash
 #
 # 2022-08-02 GF
+# execution : wget -O - https://raw.githubusercontent.com/gf-eaton/procedures/main/pxmcea-v1.sh | sudo bash
 #
 # Step 1 certificate
-sudo mkdir /usr/share/ca-certificates/Eaton
-sudo cat > /usr/share/ca-certificates/Eaton/EatonRootCA2.crt <<EOF
+sudo /bin/mkdir /usr/share/ca-certificates/Eaton
+sudo /bin/cat > /usr/share/ca-certificates/Eaton/EatonRootCA2.crt <<EOF
 -----BEGIN CERTIFICATE-----
 MIIFSjCCAzKgAwIBAgIQPpyid3XgppdPmbQ2Wkh4iDANBgkqhkiG9w0BAQsFADA2
 MRowGAYDVQQKExFFYXRvbiBDb3Jwb3JhdGlvbjEYMBYGA1UEAxMPRWF0b24gUm9v
@@ -51,16 +52,16 @@ sudo apt update ; sudo apt upgrade -y
 sudo apt install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev ca-certificates
 sleep 5
 #
-# Step 3 dot NET 6 (install as user)
-rm -fr $HOME/dotnet
+# Step 3 dot NET 6
+rm -fr /opt/dotnet
 wget -nc https://download.visualstudio.microsoft.com/download/pr/901f7928-5479-4d32-a9e5-ba66162ca0e4/d00b935ec4dc79a27f5bde00712ed3d7/dotnet-sdk-6.0.400-linux-arm64.tar.gz
 echo "please wait this may take a minute or two ..."
-mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-6.0.400-linux-arm64.tar.gz -C $HOME/dotnet
+mkdir -p /opt/dotnet && tar zxf dotnet-sdk-6.0.400-linux-arm64.tar.gz -C /opt/dotnet
 cd
-grep "export PATH=$PATH:$HOME/dotnet" .bashrc
+grep "export PATH=$PATH:/opt/dotnet" .bashrc
 if [ $? -eq 1 ] ; then
-  sudo echo 'export PATH=$PATH:$HOME/dotnet' >> .bashrc
-  sudo echo 'export DOTNET_ROOT=$HOME/dotnet' >> .bashrc
+  echo 'export PATH=$PATH:/opt/dotnet' >> .bashrc
+  echo 'export DOTNET_ROOT=/opt/dotnet' >> .bashrc
   source .bashrc
 fi
 
