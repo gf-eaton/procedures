@@ -67,13 +67,15 @@ EOF
 grep "EatonRootCA2.crt" /etc/ca-certificates.conf
 if [ $? -eq 1 ] ; then
   echo "insert new certificate"
-  sudo echo "/usr/share/ca-certificates/Eaton/EatonRootCA2.crt" >> /etc/ca-certificates.conf
+  sudo echo "Eaton/EatonRootCA2.crt" >> /etc/ca-certificates.conf
   sudo update-ca-certificates
 fi
+sleep 5
 #
 # Step 2 tools/lib
 sudo apt update ; sudo apt upgrade -y
 sudo apt install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev ca-certificates
+sleep 5
 #
 # Step 3 dot NET 6
 sudo wget https://download.visualstudio.microsoft.com/download/pr/cd0d0a4d-2a6a-4d0d-b42e-dfd3b880e222/008a93f83aba6d1acf75ded3d2cfba24/dotnet-sdk-6.0.400-linux-x64.tar.gz
@@ -84,11 +86,13 @@ sudo echo 'export DOTNET_ROOT=$HOME/dotnet' >> .bashrc
 source .bashrc
 
 dotnet --list-sdks
+sleep 10
 #
 # Step 4 Mimer SQL
 wget https://download.mimer.com/pub/dist/linux_arm_64/mimersqlsrv1105_11.0.5A-34699_arm64.deb
 sudo dpkg -i mimersqlsrv1105_11.0.5A-34699_arm64.deb
 cd /opt/mimer*
+sleep 5
 #
 # Step 5 system cron
 sudo echo "@reboot /usr/bin/mkfifo /tmp/iot.pipe /tmp/ui.pipe" >> /etc/crontab
