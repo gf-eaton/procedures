@@ -54,6 +54,7 @@ sleep 5
 # Step 3 dot NET 6 (install as user)
 rm $HOME/dotnet
 wget -nc https://download.visualstudio.microsoft.com/download/pr/901f7928-5479-4d32-a9e5-ba66162ca0e4/d00b935ec4dc79a27f5bde00712ed3d7/dotnet-sdk-6.0.400-linux-arm64.tar.gz
+echo "please wait this may take a minute or two ..."
 mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-6.0.400-linux-arm64.tar.gz -C $HOME/dotnet
 cd
 grep "export PATH=$PATH:$HOME/dotnet" .bashrc
@@ -70,7 +71,9 @@ echo "sleep 10" ; sleep 10
 # Step 4 Mimer SQL
 sudo wget -nc https://download.mimer.com/pub/dist/linux_arm_64/mimersqlsrv1105_11.0.5A-34699_arm64.deb
 sudo dpkg -i mimersqlsrv1105_11.0.5A-34699_arm64.deb
-cd /opt/mimer*
+cd /opt/mimer* ; cd bin
+ls
+echo "use dbinstall to create a new database"
 echo "sleep 10" ; sleep 10
 #
 # Step 5 system cron
