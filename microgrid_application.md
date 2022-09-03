@@ -81,9 +81,12 @@ sleep 5
 sudo wget https://download.visualstudio.microsoft.com/download/pr/cd0d0a4d-2a6a-4d0d-b42e-dfd3b880e222/008a93f83aba6d1acf75ded3d2cfba24/dotnet-sdk-6.0.400-linux-x64.tar.gz
 mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-6.0.400-linux-x64.tar.gz -C $HOME/dotnet
 cd
-sudo echo 'export PATH=$PATH:$HOME/dotnet' >> .bashrc
-sudo echo 'export DOTNET_ROOT=$HOME/dotnet' >> .bashrc
-source .bashrc
+grep "export PATH=$PATH:$HOME/dotnet" .bashrc
+if [ $? -eq 1 ] ; then
+  sudo echo 'export PATH=$PATH:$HOME/dotnet' >> .bashrc
+  sudo echo 'export DOTNET_ROOT=$HOME/dotnet' >> .bashrc
+  source .bashrc
+fi
 
 dotnet --list-sdks
 sleep 10
