@@ -64,8 +64,12 @@ RGcJghQfeOb8EGnja9k=
 -----END CERTIFICATE-----
 EOF
 
-sudo echo "/usr/share/ca-certificates/Eaton/EatonRootCA2.crt" >> /etc/ca-certificates.conf
-sudo update-ca-certificates
+grep "EatonRootCA2.crt" /etc/ca-certificates.conf
+if [ $? -eq 1 ] ; then
+  echo "insert new certificate"
+  sudo echo "/usr/share/ca-certificates/Eaton/EatonRootCA2.crt" >> /etc/ca-certificates.conf
+  sudo update-ca-certificates
+fi
 #
 # Step 2 tools/lib
 sudo apt update ; sudo apt upgrade -y
