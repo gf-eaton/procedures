@@ -26,7 +26,7 @@ Before you start :
 4. Mimer SQL
 5. System cron
 
-call using `sudo wget https://github.com/gf-eaton/procedures/blob/main/pxmcea-v1.sh | -`
+call using `sudo wget -qO - https://raw.githubusercontent.com/gf-eaton/procedures/main/pxmcea-v1.sh | sudo bash`
 ```
 #!/bin/bash
 #
