@@ -64,7 +64,7 @@ RGcJghQfeOb8EGnja9k=
 -----END CERTIFICATE-----
 EOF
 
-sudo echo "/usr/share/ca-certificates/Eaton/EatonRootCA2.crt" /etc/ca-certificates.conf
+sudo echo "/usr/share/ca-certificates/Eaton/EatonRootCA2.crt" >> /etc/ca-certificates.conf
 sudo update-ca-certificates
 #
 # Step 2 tools/lib
