@@ -30,7 +30,7 @@ copy/paste the code in `nano runme.sh` then `sudo bash ./runme.sh`
 #
 # Step 1 certificate
 sudo mkdir /usr/share/ca-certificates/Eaton
-sudo cat <<EOF > /usr/share/ca-certificates/Eaton/EatonRootCA2.crt
+sudo cat > /usr/share/ca-certificates/Eaton/EatonRootCA2.crt <<EOF
 -----BEGIN CERTIFICATE-----
 MIIFSjCCAzKgAwIBAgIQPpyid3XgppdPmbQ2Wkh4iDANBgkqhkiG9w0BAQsFADA2
 MRowGAYDVQQKExFFYXRvbiBDb3Jwb3JhdGlvbjEYMBYGA1UEAxMPRWF0b24gUm9v
