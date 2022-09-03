@@ -68,9 +68,10 @@ grep "export PATH=$PATH:/opt/dotnet" .bashrc
 if [ $? -eq 1 ] ; then
   echo 'export PATH=$PATH:/opt/dotnet' >> .bashrc
   echo 'export DOTNET_ROOT=/opt/dotnet' >> .bashrc
-  source .bashrc
 fi
+source .bashrc
 
+dotnet --info
 dotnet --list-sdks
 
 echo "sleep 10" ; sleep 10
