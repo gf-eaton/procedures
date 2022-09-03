@@ -24,9 +24,9 @@ Before you start :
 4. Mimer SQL
 5. System cron
 
-copy/paste the code in `nano runme.sh` then `bash ./runme.sh`
+copy/paste the code in `nano runme.sh` then `sudo bash ./runme.sh`
 ```
-!#/bin/bash
+#!/bin/bash
 #
 # Step 1 certificate
 sudo mkdir /usr/share/ca-certificates/Eaton
