@@ -51,9 +51,9 @@ sudo apt update ; sudo apt upgrade -y
 sudo apt install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev ca-certificates
 sleep 5
 #
-# Step 3 dot NET 6
-sudo rm $HOME/dotnet
-sudo wget -nc https://download.visualstudio.microsoft.com/download/pr/901f7928-5479-4d32-a9e5-ba66162ca0e4/d00b935ec4dc79a27f5bde00712ed3d7/dotnet-sdk-6.0.400-linux-arm64.tar.gz
+# Step 3 dot NET 6 (install as user)
+rm $HOME/dotnet
+wget -nc https://download.visualstudio.microsoft.com/download/pr/901f7928-5479-4d32-a9e5-ba66162ca0e4/d00b935ec4dc79a27f5bde00712ed3d7/dotnet-sdk-6.0.400-linux-arm64.tar.gz
 mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-6.0.400-linux-arm64.tar.gz -C $HOME/dotnet
 cd
 grep "export PATH=$PATH:$HOME/dotnet" .bashrc
@@ -64,6 +64,7 @@ if [ $? -eq 1 ] ; then
 fi
 
 dotnet --list-sdks
+
 echo "sleep 10" ; sleep 10
 #
 # Step 4 Mimer SQL
