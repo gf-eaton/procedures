@@ -11,10 +11,12 @@ Device : `Microgrid Controller` (in this case : Rpi CM4 or Rpi 3B or better)
 
 Minimum required : `2GB RAM, 8GB storage (SD card)`
 
-Before you start : 
+Before you start :
+ - have a power supply 2A+ for Rpi 3B (otherwise it will crash)
  - Debian/Raspbian (bullseye) or lastest is running
  - sshd is running
  - login/user in sudoer
+ 
 
 ### Script
 
@@ -70,7 +72,7 @@ if [ $? -eq 1 ] ; then
   sudo echo "Eaton/EatonRootCA2.crt" >> /etc/ca-certificates.conf
   sudo update-ca-certificates
 fi
-sleep 5
+echo "sleep 5" ; sleep 5
 #
 # Step 2 tools/lib
 sudo apt update ; sudo apt upgrade -y
@@ -78,8 +80,10 @@ sudo apt install -y git cmake build-essential curl libcurl4-openssl-dev libssl-d
 sleep 5
 #
 # Step 3 dot NET 6
-sudo wget https://download.visualstudio.microsoft.com/download/pr/cd0d0a4d-2a6a-4d0d-b42e-dfd3b880e222/008a93f83aba6d1acf75ded3d2cfba24/dotnet-sdk-6.0.400-linux-x64.tar.gz
-mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-6.0.400-linux-x64.tar.gz -C $HOME/dotnet
+sudo rm $HOME/dotnet
+sudo wget -nc https://download.visualstudio.microsoft.com/download/pr/901f7928-5479-4d32-a9e5-ba66162ca0e4/d00b935ec4dc79a27f5bde00712ed3d7/dotnet-sdk-6.0.400-linux-arm64.tar.gz
+)
+mkdir -p $HOME/dotnet && tar zxfdotnet-sdk-6.0.400-linux-arm64.tar.gz -C $HOME/dotnet
 cd
 grep "export PATH=$PATH:$HOME/dotnet" .bashrc
 if [ $? -eq 1 ] ; then
@@ -89,17 +93,21 @@ if [ $? -eq 1 ] ; then
 fi
 
 dotnet --list-sdks
-sleep 10
+echo "sleep 10" ; sleep 10
 #
 # Step 4 Mimer SQL
-wget https://download.mimer.com/pub/dist/linux_arm_64/mimersqlsrv1105_11.0.5A-34699_arm64.deb
+sudo wget -nc https://download.mimer.com/pub/dist/linux_arm_64/mimersqlsrv1105_11.0.5A-34699_arm64.deb
 sudo dpkg -i mimersqlsrv1105_11.0.5A-34699_arm64.deb
 cd /opt/mimer*
-sleep 5
+echo "sleep 10" ; sleep 10
 #
 # Step 5 system cron
-sudo echo "@reboot /usr/bin/mkfifo /tmp/iot.pipe /tmp/ui.pipe" >> /etc/crontab
-sudo echo "@reboot /usr/bin/sleep 1 ; /usr/bin/date >> /tmp/reboot.log ; /usr/bin/sleep 2 ; /usr/bin/ls -lahs /tmp/*.pipe >> /tmp/reboot.log ; echo '---------------------------' >> /tmp/reboot.log"
+sudo grep "@reboot /usr/bin/mkfifo /tmp/iot.pipe" /etc/crontab
+if [ $? -eq 1 ] ; then
+  sudo echo "@reboot /usr/bin/mkfifo /tmp/iot.pipe /tmp/ui.pipe" >> /etc/crontab
+  sudo echo "@reboot /usr/bin/sleep 1 ; /usr/bin/date >> /tmp/reboot.log ; /usr/bin/sleep 2 ; /usr/bin/ls -lahs /tmp/*.pipe >> /tmp/reboot.log ; echo '---------------------------' >> /tmp/reboot.log"
+fi
+echo "Finish."
 ```
 
 ---
