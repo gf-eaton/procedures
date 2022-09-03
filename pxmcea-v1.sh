@@ -1,13 +1,13 @@
 #!/bin/bash
 #
 # 2022-08-02 GF
-# execution : wget -O - https://raw.githubusercontent.com/gf-eaton/procedures/main/pxmcea-v1.sh | sudo bash
+# execution : wget -O - https://raw.githubusercontent.com/gf-eaton/procedures/main/pxmcea-v1.sh | bash
 #
 # Step 1 certificate
 cd
 pwd
 sudo /bin/mkdir /usr/share/ca-certificates/Eaton
-sudo /bin/cat > /usr/share/ca-certificates/Eaton/EatonRootCA2.crt <<EOF
+cat > EatonRootCA2.crt <<EOF
 -----BEGIN CERTIFICATE-----
 MIIFSjCCAzKgAwIBAgIQPpyid3XgppdPmbQ2Wkh4iDANBgkqhkiG9w0BAQsFADA2
 MRowGAYDVQQKExFFYXRvbiBDb3Jwb3JhdGlvbjEYMBYGA1UEAxMPRWF0b24gUm9v
@@ -41,9 +41,11 @@ RGcJghQfeOb8EGnja9k=
 -----END CERTIFICATE-----
 EOF
 
+sudo mv EatonRootCA2.crt /usr/share/ca-certificates/Eaton/EatonRootCA2.crt
+
 grep "EatonRootCA2.crt" /etc/ca-certificates.conf
 if [ $? -eq 1 ] ; then
-  echo "insert new certificate"
+  echo "insert new certificate in conf"
   sudo echo "Eaton/EatonRootCA2.crt" >> /etc/ca-certificates.conf
   sudo update-ca-certificates
 fi
