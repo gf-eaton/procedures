@@ -76,8 +76,8 @@ dotnet --list-sdks
 echo "sleep 10" ; sleep 10
 #
 # Step 4 Mimer SQL
-sudo wget -nc https://download.mimer.com/pub/dist/linux_arm_64/mimersqlsrv1105_11.0.5A-34699_arm64.deb
-sudo dpkg -i mimersqlsrv1105_11.0.5A-34699_arm64.deb
+wget -nc https://download.mimer.com/pub/dist/linux_arm_64/mimersqlsrv1105_11.0.5A-34699_arm64.deb
+sudo dpkg -i ./mimersqlsrv1105_11.0.5A-34699_arm64.deb
 cd /opt/mimer* ; cd bin
 ls
 echo "use dbinstall to create a new database"
