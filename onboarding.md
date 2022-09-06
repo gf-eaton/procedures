@@ -22,6 +22,7 @@
     - Request access x$ [Confluence](http://itsc7.tcc.etn.com/ServiceCatalog/navigation.do?go=submission&dashboard=tl%3A2%7Cmc%3A1%7Cc%3A75%7Ct%3A3)
     - Request license x$ [MSDN/VS2022 Pro](http://itsc7.tcc.etn.com/ServiceCatalog/navigation.do?go=sd&entry=000000000075952)
     - Optional request 320$ [Miro](http://itsc7.tcc.etn.com/ServiceCatalog/navigation.do?go=sd&entry=000000000082951)
+ 3. [Amex request](https://eaton.columncloud.com/arsys/forms/etnprdap2/COL:CORE:User_Portal_Finance/UI_View/)
 
 ### After first week
 
@@ -32,7 +33,8 @@
  - [AER Form](http://itsc7.tcc.etn.com/ServiceCatalog/navigation.do?go=sd&entry=000000000129970)
  - [SunLife](https://www.sunnet.sunlife.com/signin/mysunlife/home.wca)
  - [Benefits](https://ebc.hroffice.com/)
- - ~~[Concur](./)~~
+ - [Concur-Travel](https://www.concursolutions.com/home.asp)
+ - [Talent Hub](https://eid.eaton.com/app/etn_sapias_1/exk1l15lrs9uYYf2Z4x7/sso/saml) Edit your goals (Manager need to do something)
 
 #### Team links
  - [Vacation](https://confluence-prod.tcc.etn.com/pages/viewpage.action?spaceKey=MGC&title=Vacation+Calendar)
@@ -41,7 +43,12 @@
 #### Nice to have
  - [Avatar maker](https://avatarmaker.com/)
 
-#### Tools required (minimal version listed)
+#### Tools required 
+ - install after you have admin rights 
+ - minimal version listed newer ok!
+
+##### Printer
+ - [ ] In explorer type `\\camonspfp01` right click install
 
 ##### Free
  - [ ] Git-2.37.1-64-bit
@@ -50,11 +57,12 @@
  - [ ] [Azure CLI for Windows 2.39](https://aka.ms/installazurecliwindows)
  - [ ] Postman-win64-9.24.2-Setup
  - [ ] cmake-3.24.0-rc4-windows-x86_64
- - [ ] putty x64
+ - [ ] putty x64 0.77
  - [ ] mobaXterm lastest (putty is similar)
 
 ##### Commercial
- - [ ] Visual Studio PRO
+ - [ ] Visual Studio PRO (need to do the request license first)
+
 ---
-Last update 2022-09-01 16:06
+Last update 2022-09-06 16:02
 
