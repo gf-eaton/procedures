@@ -23,10 +23,11 @@ using `visudo` add, `CTRL-X` to save and exit
 Defaults       env_keep+="http_proxy https_proxy no_proxy"
 ```
 
-### reboot and test
+### reboot first then test 
 
 ```
-sudo apt update ; sudo apt upgrade
+reboot
+sudo apt update ; sudo apt upgrade -y ; apt autoremove
 ```
 ---
 by gf 2022 MIT (collaboration Mattéo)
