@@ -94,8 +94,39 @@ if [ $? -eq 1 ] ; then
 fi
 #
 # Step 6 netdata
-wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --no-updates
+wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --no-updates --non-interactive --stable-channel
 touch /etc/netdata/.opt-out-from-anonymous-statistics
 systemctl restart netdata
+#
+# Step 7 systemd-nspawn
+# Systemd-nspawn
+sudo apt install debootstrap systemd-container
+
+### Create a container named
+sudo mkdir -p /var/lib/machines/pxmcea
+sudo debootstrap --include=systemd-container,systemd,dbus stable /var/lib/machines/pxmcea http://deb.debian.org/debian/
+
+chroot /var/lib/machines/pxmcea
+# passwd if you want to use `machinectl login`
+#passwd -d root
+cat <<EOF >/etc/securetty
+pts/0
+pts/1
+pts/2
+pts/3
+EOF
+
+echo 'deb https://deb.debian.org/debian-security/ stable-security main' >> /etc/apt/sources.list
+
+echo 'pxmcea' > /etc/hostname
+
+# set FQDN
+cat /etc/hosts
+# set up network config
+cat /etc/network/interfaces
+exit
+
+sudo machinectl enable pxmcea
+sudo machinectl start pxmcea
 #
 echo "Finish."
