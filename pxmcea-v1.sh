@@ -98,7 +98,14 @@ wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/
 touch /etc/netdata/.opt-out-from-anonymous-statistics
 systemctl restart netdata
 #
-# Step 7 systemd-nspawn
+# Step 7 nodeJS
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm --version
+nvm ls-remote
+nvm install node
+node --version
+npm --version
+# Step 8 systemd-nspawn
 # Systemd-nspawn
 sudo apt install debootstrap systemd-container
 
@@ -117,7 +124,6 @@ pts/3
 EOF
 
 echo 'deb https://deb.debian.org/debian-security/ stable-security main' >> /etc/apt/sources.list
-
 echo 'pxmcea' > /etc/hostname
 
 # set FQDN
@@ -127,6 +133,8 @@ cat /etc/network/interfaces
 exit
 
 sudo machinectl enable pxmcea
-sudo machinectl start pxmcea
+sudo machinectl stop pxmcea
+echo "systemd-nspawn -D /var/lib/machines/pxmcea -U --machine pxmcea"
+echo "     then ... you can change root password with passwd root"
 #
 echo "Finish."
