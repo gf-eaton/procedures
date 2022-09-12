@@ -90,5 +90,6 @@ sudo grep "@reboot /usr/bin/mkfifo /tmp/iot.pipe" /etc/crontab
 if [ $? -eq 1 ] ; then
   sudo echo "@reboot /usr/bin/mkfifo /tmp/iot.pipe /tmp/ui.pipe" >> /etc/crontab
   sudo echo "@reboot /usr/bin/sleep 1 ; /usr/bin/date >> /tmp/reboot.log ; /usr/bin/sleep 2 ; /usr/bin/ls -lahs /tmp/*.pipe >> /tmp/reboot.log ; echo '---------------------------' >> /tmp/reboot.log"
+  sudo echo "0 1 * * 1 apt update ; apt upgrade -y"
 fi
 echo "Finish."
