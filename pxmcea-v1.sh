@@ -92,4 +92,10 @@ if [ $? -eq 1 ] ; then
   sudo echo "@reboot /usr/bin/sleep 1 ; /usr/bin/date >> /tmp/reboot.log ; /usr/bin/sleep 2 ; /usr/bin/ls -lahs /tmp/*.pipe >> /tmp/reboot.log ; echo '---------------------------' >> /tmp/reboot.log"
   sudo echo "0 1 * * 1 apt update ; apt upgrade -y"
 fi
+#
+# Step 6 netdata
+wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --no-updates
+touch /etc/netdata/.opt-out-from-anonymous-statistics
+systemctl restart netdata
+#
 echo "Finish."
