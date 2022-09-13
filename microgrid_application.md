@@ -13,7 +13,7 @@ Minimum required : `2GB RAM, 8GB storage (SD card)`
 
 Before you start :
  - have a power supply 2A+ for Rpi 3B (otherwise it will crash)
- - Debian/Raspbian (bullseye) or lastest is running
+ - Debian/Raspbian (bullseye) or **lastest** running
  - sshd is running
  - login/user in sudoer
  
@@ -21,10 +21,14 @@ Before you start :
 ### Script
 
 1. Eaton Certficate
-2. System tools
+2. System tools (lib, compiler,...)
 3. .NET Core 6
 4. Mimer SQL
 5. System cron
+6. netdata
+7. nodeJS
+8. systemd-nspawn (paused for now, not complete, will be back to this)
+9. webhook for DevOps CI/CD integration
 
 call using `wget -O - https://raw.githubusercontent.com/gf-eaton/procedures/main/pxmcea-v1.sh | bash`
 
