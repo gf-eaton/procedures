@@ -242,7 +242,6 @@ cat > .gitconfig <<EOF
 EOF
 mkdir -p /opt/pxmcea
 cd /opt/pxmcea
-#-- test au3f3fv34vohowrgl6qp5thylcmifgwgi47v6h2qqadbmhtkwq5q
 git clone https://dev.azure.com/etn-electrical/PXMC-EA/_git/rca-v1
 #
 echo "Finish."
