@@ -180,4 +180,69 @@ machinectl stop pxmcea
 echo "systemd-nspawn -D /var/lib/machines/pxmcea -U --machine pxmcea"
 echo "     then ... you can change root password with passwd root"
 #
+# Step 9 Webhook app for NodeJS
+cd /opt/node
+npm init -y
+npm install express body-parser
+npm install 
+npm install -g nodemon
+cat > webhook.js.crt <<EOF
+// webhook v1 - gf 2022-09-13
+//
+const express = require("express")
+const bodyParser = require("body-parser")
+const app = express()
+const PORT = 3000
+
+const { spawn } = require('child_process');
+const bash = spawn('bash');
+bash.stdout.on('data', (data) => {
+  console.log(`stdout: ${data}`);
+});
+
+bash.stderr.on('data', (data) => {
+  console.error(`stderr: ${data}`);
+});
+
+bash.on('close', (code) => {
+  console.log(`child process exited with code ${code}`);
+});
+
+
+// Tell express to use body-parser's JSON parsing
+app.use(bodyParser.json())
+
+app.post("/hook-html", (req, res) => {
+  console.log(req.body)
+
+  bash.stdin.write('cd /opt/pxmcea/rca-v1/\n');
+  bash.stdin.write('git pull\n');
+  bash.stdin.end();
+
+  res.status(200).end() // Responding is important
+})
+
+// Start express on the defined port
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+EOF
+
+echo 'create your first hook named rca-v1'
+#
+# Step 10 git config
+cd
+cat > .gitconfig <<EOF
+[user]
+        name = root
+        email = guyfrancoeur@eaton.com
+[http]
+        proxy = http://proxy.etn.com:8080
+        sslVerify = false
+[https]
+        proxy = http://proxy.etn.com:8080
+EOF
+mkdir -p /opt/pxmcea
+cd /opt/pxmcea
+#-- test au3f3fv34vohowrgl6qp5thylcmifgwgi47v6h2qqadbmhtkwq5q
+git clone https://dev.azure.com/etn-electrical/PXMC-EA/_git/rca-v1
+#
 echo "Finish."
