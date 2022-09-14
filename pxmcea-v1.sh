@@ -1,12 +1,13 @@
 #!/bin/bash
 #
 # 2022-08-02 GF
+# must be ran as : root
 # execution : wget -O - https://raw.githubusercontent.com/gf-eaton/procedures/main/pxmcea-v1.sh | bash
 #
 # Step 1 certificate
 cd
 pwd
-sudo /bin/mkdir /usr/share/ca-certificates/Eaton
+/bin/mkdir /usr/share/ca-certificates/Eaton
 cat > EatonRootCA2.crt <<EOF
 -----BEGIN CERTIFICATE-----
 MIIFSjCCAzKgAwIBAgIQPpyid3XgppdPmbQ2Wkh4iDANBgkqhkiG9w0BAQsFADA2
@@ -41,28 +42,28 @@ RGcJghQfeOb8EGnja9k=
 -----END CERTIFICATE-----
 EOF
 
-sudo mv EatonRootCA2.crt /usr/share/ca-certificates/Eaton/EatonRootCA2.crt
+mv EatonRootCA2.crt /usr/share/ca-certificates/Eaton/EatonRootCA2.crt
 
 grep "EatonRootCA2.crt" /etc/ca-certificates.conf
 if [ $? -eq 1 ] ; then
   echo "insert new certificate in conf"
-  sudo echo "Eaton/EatonRootCA2.crt" >> /etc/ca-certificates.conf
-  sudo update-ca-certificates
+  echo "Eaton/EatonRootCA2.crt" >> /etc/ca-certificates.conf
+  update-ca-certificates
 fi
 echo "sleep 5" ; sleep 5
 #
 # Step 2 tools/lib
-sudo apt update ; sudo apt upgrade -y
-sudo apt install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev ca-certificates
+apt update ; apt upgrade -y
+apt install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev ca-certificates
 sleep 5
 #
 # Step 3 dot NET 6
 cd
-sudo rm -fr /opt/dotnet
+rm -fr /opt/dotnet
 wget -nc https://download.visualstudio.microsoft.com/download/pr/901f7928-5479-4d32-a9e5-ba66162ca0e4/d00b935ec4dc79a27f5bde00712ed3d7/dotnet-sdk-6.0.400-linux-arm64.tar.gz
 echo "please wait this may take a minute or two ..."
-sudo mkdir -p /opt/dotnet 
-sudo tar zxf dotnet-sdk-6.0.400-linux-arm64.tar.gz -C /opt/dotnet
+mkdir -p /opt/dotnet 
+tar zxf dotnet-sdk-6.0.400-linux-arm64.tar.gz -C /opt/dotnet
 cd
 grep "export PATH=$PATH:/opt/dotnet" .bashrc
 if [ $? -eq 1 ] ; then
@@ -78,15 +79,15 @@ echo "sleep 10" ; sleep 10
 #
 # Step 4 Mimer SQL
 wget -nc https://download.mimer.com/pub/dist/linux_arm_64/mimersqlsrv1105_11.0.5A-34699_arm64.deb
-sudo dpkg -i ./mimersqlsrv1105_11.0.5A-34699_arm64.deb
+dpkg -i ./mimersqlsrv1105_11.0.5A-34699_arm64.deb
 cd /opt/mimer* ; cd bin
 /bin/ls --color
 echo "Installing database telemetry"
-sudo dbinstall telemetry Security
+dbinstall telemetry Security
 echo "sleep 10" ; sleep 10
 #
 # Step 5 system cron
-sudo grep "@reboot /usr/bin/mkfifo /tmp/iot.pipe" /etc/crontab
+grep "@reboot /usr/bin/mkfifo /tmp/iot.pipe" /etc/crontab
 if [ $? -eq 1 ] ; then
   echo "@reboot /usr/bin/mkfifo /tmp/iot.pipe /tmp/ui.pipe" >> /tmp/crontab
   echo "@reboot /usr/bin/sleep 1 ; /usr/bin/date >> /tmp/reboot.log ; /usr/bin/sleep 2 ; /usr/bin/ls -lahs /tmp/*.pipe >> /tmp/reboot.log ; echo '---------------------------' >> /tmp/reboot.log" >> /tmp/crontab
