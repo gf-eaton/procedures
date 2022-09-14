@@ -88,9 +88,10 @@ echo "sleep 10" ; sleep 10
 # Step 5 system cron
 sudo grep "@reboot /usr/bin/mkfifo /tmp/iot.pipe" /etc/crontab
 if [ $? -eq 1 ] ; then
-  sudo echo "@reboot /usr/bin/mkfifo /tmp/iot.pipe /tmp/ui.pipe" >> /etc/crontab
-  sudo echo "@reboot /usr/bin/sleep 1 ; /usr/bin/date >> /tmp/reboot.log ; /usr/bin/sleep 2 ; /usr/bin/ls -lahs /tmp/*.pipe >> /tmp/reboot.log ; echo '---------------------------' >> /tmp/reboot.log"
-  sudo echo "0 1 * * 1 apt update ; apt upgrade -y"
+  echo "@reboot /usr/bin/mkfifo /tmp/iot.pipe /tmp/ui.pipe" >> /tmp/crontab
+  echo "@reboot /usr/bin/sleep 1 ; /usr/bin/date >> /tmp/reboot.log ; /usr/bin/sleep 2 ; /usr/bin/ls -lahs /tmp/*.pipe >> /tmp/reboot.log ; echo '---------------------------' >> /tmp/reboot.log" >> /tmp/crontab
+  echo "0 1 * * 1 apt update ; apt upgrade -y" >> /tmp/crontab
+  crontab /tmp/crontab
 fi
 #
 # Step 6 netdata
