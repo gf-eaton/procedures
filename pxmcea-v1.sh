@@ -108,7 +108,7 @@ nvm ls-remote
 nvm install node
 node --version
 npm --version
-# Step 8 systemd-nspawn
+# Step 8 systemd-nspawn and a sample pxmcea container
 # Systemd-nspawn
 apt install -y debootstrap systemd-container
 
@@ -191,41 +191,68 @@ npm install -g nodemon
 cat > webhook.js.crt <<EOF
 // webhook v1 - gf 2022-09-13
 //
+//
 const express = require("express")
 const bodyParser = require("body-parser")
 const app = express()
 const PORT = 3000
 
 const { spawn } = require('child_process');
-const bash = spawn('bash');
-bash.stdout.on('data', (data) => {
-  console.log(`stdout: ${data}`);
-});
 
-bash.stderr.on('data', (data) => {
-  console.error(`stderr: ${data}`);
-});
+const { exec } = require('node:child_process');
 
-bash.on('close', (code) => {
-  console.log(`child process exited with code ${code}`);
-});
+function s() {
+  console.log(`process git fetch --dryrun`);
 
+  exec('git fetch --dry-run origin', { shell: true, cwd: '/opt/pxmcea/rca-v1' }, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return;
+    }
+
+    // for a stange reason git fetch output the result in the stderr channel.
+    if (stderr.length > 0) {
+      const git = spawn('git pull', {
+        stdio: 'inherit',
+        shell: true,
+        cwd: '/opt/pxmcea/rca-v1'
+      });
+      console.log(JSON.stringify(git));
+    }
+
+    console.log(`stdout: ${stdout}`);
+    console.error(`stderr: ${stderr}`);
+  });
+}
+
+setInterval(() => {
+ s();
+}, 1000*120);
 
 // Tell express to use body-parser's JSON parsing
 app.use(bodyParser.json())
 
-app.post("/hook-html", (req, res) => {
-  console.log(req.body)
+app.post("/rca-v1", (req, res) => {
+  console.log(JSON.stringify(req.body));
 
-  bash.stdin.write('cd /opt/pxmcea/rca-v1/\n');
-  bash.stdin.write('git pull\n');
-  bash.stdin.end();
+  const git = spawn('git pull', {
+    stdio: 'inherit',
+    shell: true,
+    cwd: '/opt/pxmcea/rca-v1'
+  });
+  console.log(JSON.stringify(git));
 
+  res.status(200).end() // Responding is important
+})
+
+app.post("/test", (req, res) => {
+  console.log("test hook\n" + JSON.stringify(req.body));
   res.status(200).end() // Responding is important
 })
 
 // Start express on the defined port
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+
 EOF
 
 echo 'create your first hook named rca-v1'
