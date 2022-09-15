@@ -1,4 +1,4 @@
-CERATE TABLE points (
+CREATE TABLE points (
  ts timestamp
 ,cName varchar(50)
 ,nValue numeric(14,6)
