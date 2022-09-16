@@ -20,6 +20,7 @@ Before you start :
 
 ### Script
 
+0. Networking
 1. Eaton Certficate
 2. System tools (lib, compiler,...)
 3. .NET Core 6
