@@ -1,6 +1,6 @@
 # Welcome to Eaton
 
-## On-Boardding - Microgrid Control Platforms (ESS)
+## On-Boardding - Microgrid Control Platforms (EESSD) for PXMC
 
   Manager : Hossein Ghassempour Aghamolki
 
