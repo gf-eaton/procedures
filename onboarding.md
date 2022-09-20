@@ -66,14 +66,12 @@ ID | Audience | Package name | best time to install | chargeback | required for
 17 |    IP  | [SQL Server Management Studio (SSMS)](https://aka.ms/ssmsfullsetup) | when need it | free |
 18 | F   P  | putty x64 0.77 | when need it | free |
 19 | F   P  | mobaXterm lastest (putty is similar) | when need it | free |
-20 |    I Q | Selenium | when need it | ? | 
-21 |    I Q | Coverity | when need it |   | 
+20 |    I Q | Selenium | when need it | IT | 
+21 |    I Q | Coverity | when need it | IT | 
+22 |    I Q | BlackDuck | when need it | IT | 
 31 | FA  PQ |   VScode Extension : Azure Account, C/C++, CMake, Cmake Tools, Jupyter | | 12
 32 |   D    |   VScode Extension : Azure Account | | 12
 33 |    I   |   VScode Extension : Azure Account, Azure Terraform | | 12
 
-
-
 ---
-Last update 2022-09-16 07:33
-
+Last update 2022-09-20 07:56
