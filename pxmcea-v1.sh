@@ -265,14 +265,13 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
 EOF
 
-echo 'create your first hook named rca-v1'
 #
 # Step 10 git config
 cd
 cat > .gitconfig <<EOF
 [user]
         name = root
-        email = guyfrancoeur@eaton.com
+        email = pxmcea@eaton.com
 [http]
         proxy = http://proxy.etn.com:8080
         sslVerify = false
@@ -281,6 +280,7 @@ cat > .gitconfig <<EOF
 EOF
 mkdir -p /opt/pxmcea
 cd /opt/pxmcea
-git clone https://dev.azure.com/etn-electrical/PXMC-EA/_git/rca-v1
+git clone https://user:password@dev.azure.com/etn-electrical/PXMC-EA/_git/rca-v1
+#
 #
 echo "Finish."
