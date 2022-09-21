@@ -185,6 +185,10 @@ machinectl enable pxmcea
 machinectl start pxmcea
 machinectl status pxmcea
 machinectl stop pxmcea
+
+systemctl set-property systemd-nspawn@pxmcea.service MemoryMax=2G
+systemctl set-property systemd-nspawn@pxmcea.service CPUQuota=200%
+
 echo "systemd-nspawn -D /var/lib/machines/pxmcea -U --machine pxmcea"
 echo "     then ... you can change root password with passwd root"
 #
