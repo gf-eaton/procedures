@@ -37,10 +37,10 @@ to build (Production) use `npm run build` wait a few minutes then consume the UI
 - [Egde](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil)
 - 
 ### Reference
-
-[react cli template](https://github.com/brightlayer-ui/react-cli-templates/tree/master)
-[BLI component](https://github.com/brightlayer-ui/react-component-library)
-[React Extension](https://reactjs.org/blog/2015/09/02/new-react-developer-tools.html#installation)
+- [BrightLayer](https://brightlayer-ui.github.io/overview)
+- [react cli template](https://github.com/brightlayer-ui/react-cli-templates/tree/master)
+- [BLI component](https://github.com/brightlayer-ui/react-component-library)
+- [React Extension](https://reactjs.org/blog/2015/09/02/new-react-developer-tools.html#installation)
 
 ---
 MIT gf 2022
