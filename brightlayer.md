@@ -39,6 +39,7 @@ to build (Production) use `npm run build` wait a few minutes then consume the UI
 ### Reference
 
 [react cli template](https://github.com/brightlayer-ui/react-cli-templates/tree/master)
+[React Extension](https://reactjs.org/blog/2015/09/02/new-react-developer-tools.html#installation)
 
 ---
 MIT gf 2022
