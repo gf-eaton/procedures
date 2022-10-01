@@ -6,6 +6,8 @@
 #
 #-------------------------------------------------------------------------------------------------------
 # This script add the container capability.
+# reference:
+#    https://wiki.archlinux.org/title/Systemd-nspawn
 #-------------------------------------------------------------------------------------------------------
 #
 # Step 1 systemd-nspawn and a sample pxmcea container
@@ -84,7 +86,29 @@ machinectl stop pxmcea
 systemctl set-property systemd-nspawn@pxmcea.service MemoryMax=2G
 systemctl set-property systemd-nspawn@pxmcea.service CPUQuota=200%
 
+mkdir /etc/systemd/nspawn
+cat > /etc/systemd/nspawn/pxmcea.nspawn < EOF
+[Network]
+# To remove headaches and have container on same IP as HOST add a .nspawn file.
+# Otherwise you need networking knowledge...
+# Improvisation is not an option.. We are not artist we are scientist. We not making beautiful stuff, we making great stuff.
+#VirtualEthernet=no
+#Private=no
+# Otherwise in private-network (default) mode
+# You need to enabled port mapping for each port/service
+# What about dynamic port mapping ?
+Port=tcp:8000:80
+Port=tcp:2222:22
+EOF
+
 echo "systemd-nspawn -D /var/lib/machines/pxmcea -U --machine pxmcea"
 echo "     then ... you can change root password with passwd root"
+
+# You will discover port/service addition to an existing container is tricky.
+# An external application (like HAproxy) should be used to de-couple and 
+# remove the networking complexity/limitation from systemd-nspawn.
+# Of course collage can be done.  This is just top of the iceberg. 
+
+# Next step : Container security/user/filesystem issues.
 
 # Finish step 1
