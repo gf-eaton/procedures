@@ -90,6 +90,9 @@ cd /opt/mimer* ; cd bin
 /bin/ls --color
 echo "Installing database telemetry"
 dbinstall telemetry Security
+sqlmonitor telemetry --username=SYSADM --password=Security --interval=30 --stop=5 --top=5
+#sqlmonitor telemetry --username=SYSADM --password=Security --program=ExampleProgram --benchmark --order=server_requests
+miminfo telemetry -p
 echo "sleep 10" ; sleep 10
 #
 # Step 5 system cron
