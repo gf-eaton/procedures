@@ -69,6 +69,7 @@ sudo cat > .gitconfig <<EOF
         proxy = http://proxy.etn.com:8080
 EOF
 
+git config --global url.https://.insteadOf git://
 git config user.user $un
 git config user.email $ea
 
