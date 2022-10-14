@@ -60,18 +60,22 @@ if [ $? -eq 1 ] ; then
 fi
 
 # Step 2 git
-cd
-sudo cat > .gitconfig <<EOF
-[http]
-        proxy = http://proxy.etn.com:8080
-        sslVerify = false
-[https]
-        proxy = http://proxy.etn.com:8080
-EOF
+#cd
+#sudo cat > .gitconfig <<EOF
+#[http]
+#        proxy = http://proxy.etn.com:8080
+#        sslVerify = false
+#[https]
+#        proxy = http://proxy.etn.com:8080
+#EOF
 
+cd
+git config --global http.proxy http://proxy.etn.com:8080
+git config --global http.sslVerify false
+git config --global https.proxy http://proxy.etn.com:8080
 git config --global url.https://.insteadOf git://
-git config user.user $un
-git config user.email $ea
+git config --global user.user $un
+git config --global user.email $ea
 
 # Step 3 proxy
 echo 'export http_proxy="http://proxy.etn.com:8080"' > /etc/environment
