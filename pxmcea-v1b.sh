@@ -112,4 +112,4 @@ echo "     then ... you can change root password with passwd root"
 
 # Next step : Container security/user/filesystem issues.
 
-# Finish step 1
+echo "Fin"
