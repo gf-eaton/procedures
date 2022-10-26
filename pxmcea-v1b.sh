@@ -5,7 +5,8 @@
 # execution : wget -O - https://raw.githubusercontent.com/gf-eaton/procedures/main/pxmcea-v1b.sh | bash
 #
 #-------------------------------------------------------------------------------------------------------
-# This script add the container capability.
+# Goal : This script add the container capability into the HOST.
+# Sub-Goal : Have the GUEST talking to the HOST/GitHub with usage of a proxy.
 # reference:
 #    https://wiki.archlinux.org/title/Systemd-nspawn
 #-------------------------------------------------------------------------------------------------------
