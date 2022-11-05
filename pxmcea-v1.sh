@@ -3,13 +3,13 @@
 # 2022-08-02 GF
 # must be ran as : root
 # execution : wget -O - https://raw.githubusercontent.com/gf-eaton/procedures/main/pxmcea-v1.sh | bash
-#
+#---------------------------------------------------------------------------------------------------------
 # Step 0 networking
 echo "net.ipv6.conf.all.disable_ipv6=1" >> /etc/sysctl.conf
 echo "net.ipv6.conf.default.disable_ipv6=1" >> /etc/sysctl.conf
 echo "net.ipv6.conf.lo.disable_ipv6=1" >> /etc/sysctl.conf
 echo "net.ipv6.conf.all.disable_ipv6=1" >> /etc/sysctl.d/disable-ipv6.conf
-#
+#---------------------------------------------------------------------------------------------------------
 # Step 1 certificate
 cd
 pwd
@@ -57,12 +57,12 @@ if [ $? -eq 1 ] ; then
   update-ca-certificates
 fi
 echo "sleep 5" ; sleep 5
-#
+#---------------------------------------------------------------------------------------------------------
 # Step 2 tools/lib
 apt update ; apt upgrade -y
 apt install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev ca-certificates
 sleep 5
-#
+#---------------------------------------------------------------------------------------------------------
 # Step 3 dot NET 6
 cd
 rm -fr /opt/dotnet
@@ -82,7 +82,7 @@ dotnet --info
 dotnet --list-sdks
 
 echo "sleep 10" ; sleep 10
-#
+#---------------------------------------------------------------------------------------------------------
 # Step 4 Mimer SQL
 wget -nc https://download.mimer.com/pub/dist/linux_arm_64/mimersqlsrv1105_11.0.5A-34699_arm64.deb
 dpkg -i ./mimersqlsrv1105_11.0.5A-34699_arm64.deb
@@ -94,7 +94,7 @@ sqlmonitor telemetry --username=SYSADM --password=Security --interval=30 --stop=
 #sqlmonitor telemetry --username=SYSADM --password=Security --program=ExampleProgram --benchmark --order=server_requests
 miminfo telemetry -p
 echo "sleep 10" ; sleep 10
-#
+#---------------------------------------------------------------------------------------------------------
 # Step 5 system cron
 grep "@reboot /usr/bin/mkfifo /tmp/iot.pipe" /etc/crontab
 if [ $? -eq 1 ] ; then
@@ -103,13 +103,13 @@ if [ $? -eq 1 ] ; then
   echo "0 1 * * 1 apt update ; apt upgrade -y" >> /tmp/crontab
   crontab /tmp/crontab
 fi
-#
-# Step 6 netdata
+#---------------------------------------------------------------------------------------------------------
+# Step 6 netdata (monitoring device simply)
 wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --no-updates --non-interactive --stable-channel
 touch /etc/netdata/.opt-out-from-anonymous-statistics
 systemctl restart netdata
-#
-# Step 7 nodeJS
+#---------------------------------------------------------------------------------------------------------
+# Step 7 nodeJS (delivering rich application faster)
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 source .bashrc
 nvm --version
@@ -118,7 +118,7 @@ nvm install node
 node --version
 npm --version
 
-#
+#---------------------------------------------------------------------------------------------------------
 # Step 8 DevOps Webhook app for NodeJS (template app to be completed)
 cd /opt/node
 npm init -y
@@ -191,7 +191,29 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
 EOF
 
-#
+#---------------------------------------------------------------------------------------------------------
+# Step 9 postgres 13.8+ (This was used and benchmarked against MimerSQL in C# initialy)
+apt update ; apt upgrade -y ; apt autoremove
+apt install -y postgresql postgresql-contrib
+service postgresql status
+ps -ef | grep postgres
+sudo su - postgres -c "createuser pxmcea"
+sudo su - postgres -c "createdb telemetry"
+sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE telemetry TO pxmcea;"
+
+echo "listen_addresses = '*'" >> /etc/postgresql/13/main/postgresql.conf
+cat /etc/postgresql/13/main/postgresql.conf | grep listen_address
+
+echo "host    telemetry       pxmcea          0.0.0.0/0               trust" >> /etc/postgresql/13/main/pg_hba.conf
+cat /etc/postgresql/13/main/pg_hba.conf
+
+service postgresql restart
+
+ss -nlt | grep 5432
+
+psql -d telemetry -U pxmcea -h localhost -c "CREATE table telemetry(ts timestamp, attribute bigint, val decimal(12,6));"
+sleep 6
+#---------------------------------------------------------------------------------------------------------
 # Step 10 git config
 cd
 cat > .gitconfig <<EOF
