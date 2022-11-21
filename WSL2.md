@@ -53,10 +53,13 @@ sudo passwd root
 ```
 
 ##### important fixes in /etc/resolv.conf and /etc/wsl.conf
+
+You need the second nameserver when you work from outside the LAN.
 ```bash
 su -
 rm /etc/resolv.conf
 echo "nameserver 151.110.50.210" > /etc/resolv.conf
+echo "nameserver 149.112.121.10" >> /etc/resolv.conf #Cira public DNS or 8.8.8.8 for google
 echo "[network]" > /etc/wsl.conf
 echo "generateResolvConf = false" >> /etc/wsl.conf
 chattr +i /etc/resolv.conf
