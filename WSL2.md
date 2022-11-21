@@ -26,11 +26,14 @@ wsl --unregister -d debian
 REM Fresh install lastest
 wsl --install -d debian
 wsl --setdefault debian
+wsl --update
+wsl --shutdown
 ```
 
 #### verify version and state
 ```
-wsl --verbose --list
+wsl --status
+wsl --list --verbose
 ```
 
 ##### optional - to terminate an instance
