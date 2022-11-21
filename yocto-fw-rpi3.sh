@@ -1,13 +1,16 @@
 # 2022-11-20 optimized version for rpi3
 # Your system needs to support the en_US.UTF-8 locale.
 # do not run as root (it will not work)
+# python 3.6 required
 #
 #sudo apt install socat python3-pexpect xz-utils debianutils iputils-ping python3-git \
 #                 python3-jinja2 libegl1-mesa libsdl1.2-dev pylint xterm python3-subunit mesa-common-dev
 
 sudo apt update ; apt upgrade -y ; apt autoremove -y
-sudo apt install wget git unzip build-essential gcc python3 libssl-dev cpio
-sudo apt install gawk diffstat texinfo chrpath python3-pip zstd liblz4-tool file
+sudo apt install -y wget git unzip build-essential gcc python3 libssl-dev cpio gawk diffstat texinfo chrpath python3-pip zstd liblz4-tool file
+
+echo "alias python=python3" >> ~/.bashrc
+source ~/.bashrc
 
 cd
 mkdir -p ~/rpi3/yocto
