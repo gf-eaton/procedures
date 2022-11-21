@@ -24,7 +24,7 @@ apt update ; apt upgrade -y ; apt autoremove
 ```
 su -
 echo "deb http://deb.debian.org/debian bullseye main" > /etc/apt/sources.list
-echo "deb http://deb.debian.org/debian bullseye-updates main >> /etc/apt/sources.list
-echo "deb http://security.debian.org/debian-security bullseye-security main >> /etc/apt/sources.list
-echo "deb http://ftp.debian.org/debian bullseye-backports main >> /etc/apt/sources.list
+echo "deb http://deb.debian.org/debian bullseye-updates main" >> /etc/apt/sources.list
+echo "deb http://security.debian.org/debian-security bullseye-security main" >> /etc/apt/sources.list
+echo "deb http://ftp.debian.org/debian bullseye-backports main" >> /etc/apt/sources.list
 apt update ; apt upgrade -y ; apt autoremove
