@@ -1,9 +1,14 @@
 # 2022-11-20 optimized version for rpi3
+# Running this on a rpi3 take days.
+#
 # Your system needs to support the en_US.UTF-8 locale.
 # do not run as root (it will not work)
 # python 3.6+ required
 # debian 10+ required
-# running this on a rpi3 take days. swap file must be 512MB+ and Rpi3 must have 1Gb+ RAM
+# Swap file must be 512MB+
+# Raspberrypi3 must have 1Gb+ RAM The more you have the faster
+#
+# Running this on a 16 core Intel with 64GB is very fast but take all core for 30 minutes
 #
 #sudo apt install socat python3-pexpect xz-utils debianutils iputils-ping python3-git \
 #                 python3-jinja2 libegl1-mesa libsdl1.2-dev pylint xterm python3-subunit mesa-common-dev
@@ -66,9 +71,8 @@ EXTRA_USERS_PARAMS = " useradd pi; \
 # Package Management configuration
 PACKAGE_CLASSES ?= "package_deb"
 
-# SDK target architecture
+# SDK target architecture "x86_64" or "aarch64"
 SDKMACHINE ?= "aarch64"
-#"x86_64"
 
 # Additional image features
 USER_CLASSES ?= "buildstats"
