@@ -99,4 +99,4 @@ IMAGE_OVERHEAD_FACTOR = "1.5"
 #VIRTUAL-RUNTIME_dev_manager = "systemd"
 EOF
 
-echo 'bitbake rpi-test-image\nor bitbake core-image-rt\nor bitbake core-minimal-image\n or core-image-minimal-dev'
+echo 'bitbake rpi-test-image\nor bitbake core-image-rt\nor bitbake core-minimal-image\n or bitbake core-image-minimal-dev'
