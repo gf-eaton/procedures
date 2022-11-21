@@ -3,24 +3,23 @@
 ## Steps
 
  - [ ] update OS
- - [ ] install requirements
- - [ ] clone Poky
+ - [ ] validate requirements
+ - [ ] use sample recipe
 
 ### update
 ```bash
-sudo apt update ; sudo apt upgrade -y
+sudo apt update ; sudo apt upgrade -y ; apt autoremove -y
 ```
 
-### install requirements
-```
-sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm python3-subunit mesa-common-dev zstd liblz4-tool
-```
+### Validate requirements
 
-### Clone poky
-```
-git clone https://git.yoctoproject.org/poky
-```
-or
-```
-git clone -b kirkstone https://git.yoctoproject.org/poky
-```
+- Your system needs to support the en_US.UTF-8 locale.
+- do not run as root (it will not work)
+- python 3.6+ required
+- debian 10+ required
+
+### How to install using recipe
+
+- First sample for rpi3B
+  + look at file [yocto-fw-rpi3.sh](./yocto-fw-rpi3.sh)
+
