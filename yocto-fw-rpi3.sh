@@ -23,7 +23,8 @@ cd
 mkdir -p ~/rpi3/yocto
 cd ~/rpi3/yocto
 git clone -b kirkstone git://git.openembedded.org/meta-openembedded &
-git clone -b kirkstone git://git.yoctoproject.org/meta-raspberrypi &
+#git clone -b kirkstone git://git.yoctoproject.org/meta-raspberrypi &
+git clone https://github.com/agherzan/meta-raspberrypi &
 git clone -b kirkstone git://git.yoctoproject.org/poky
 
 cd ~/rpi3
