@@ -6,7 +6,7 @@
  - [ ] validate requirements
  - [ ] have the certificate installed (required for Eaton) --> see procedure
  - [ ] have the proxy setup (required for Eaton) --> see procedure
- - [ ] use sample recipe --> see procedure
+ - [ ] use sample script --> see procedure
  
 ### update
 ```bash
