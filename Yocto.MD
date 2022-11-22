@@ -4,9 +4,9 @@
 
  - [ ] update OS
  - [ ] validate requirements
- - [ ] use sample recipe --> see procedure
  - [ ] have the certificate installed (required for Eaton) --> see procedure
-
+ - [ ] use sample recipe --> see procedure
+ 
 ### update
 ```bash
 sudo apt update ; sudo apt upgrade -y ; apt autoremove -y
