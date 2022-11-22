@@ -4,7 +4,8 @@
 
  - [ ] update OS
  - [ ] validate requirements
- - [ ] use sample recipe
+ - [ ] use sample recipe --> see procedure
+ - [ ] have the certificate installed (required for Eaton) --> see procedure
 
 ### update
 ```bash
