@@ -1,5 +1,5 @@
 # 2022-11-20 optimized version for rpi3
-# Running this on a rpi3 take days.
+# Running this on a rpi3 take days. so better use WSL2 on amd64 architecture.
 #
 # Your system needs to support the en_US.UTF-8 locale.
 # do not run as root (it will not work)
@@ -8,7 +8,7 @@
 # Swap file must be 512MB+
 # Raspberrypi3 must have 1Gb+ RAM The more you have the faster
 #
-# Running this on a 16 core Intel with 64GB is very fast but take all core for 30 minutes
+# Running this on a 16 core Intel i7 with 64GB is very fast but take all core for some time.
 #
 #sudo apt install socat python3-pexpect xz-utils debianutils iputils-ping python3-git \
 #                 python3-jinja2 libegl1-mesa libsdl1.2-dev pylint xterm python3-subunit mesa-common-dev
@@ -64,16 +64,16 @@ inotify-tools htop iotop \
 openssh curl wget"
 
 # Add new user : pi/raspberry and change password of root
-EXTRA_USERS_PARAMS = " useradd pi; \
-                       usermod  -p 'raspberry' pi; \
-                       usermod  -a -G sudo pi; \
-                       usermod -P root Security; "
+EXTRA_USERS_PARAMS = " useradd pi ; \
+                       usermod -p raspberry pi ; \
+                       usermod -a -G sudo pi ; \
+                       usermod -p Security root"
 
 # Package Management configuration
 PACKAGE_CLASSES ?= "package_deb"
 
 # SDK target architecture "x86_64" or "aarch64"
-SDKMACHINE ?= "aarch64"
+SDKMACHINE ?= "x86_64"
 
 # Additional image features
 USER_CLASSES ?= "buildstats"
@@ -106,4 +106,8 @@ IMAGE_OVERHEAD_FACTOR = "1.5"
 #VIRTUAL-RUNTIME_dev_manager = "systemd"
 EOF
 
-echo 'bitbake rpi-test-image\nor bitbake core-image-rt\nor bitbake core-minimal-image\n or bitbake core-image-minimal-dev'
+echo 'bitbake core-image-rt\nor bitbake core-minimal-image\n or bitbake core-image-minimal-dev'
+
+find ./ -name c*.rpi-sdimg
+echo "dd if=core-image-minimal-dev-raspberrypi3-64.rpi-sdimg of=/dev/sda1 bs=4M status=progress"
+echo "sync"
