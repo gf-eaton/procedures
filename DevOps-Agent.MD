@@ -17,7 +17,7 @@ Duration : 12 minutes
 
 - Steps Windows:
   + Download Agent --> https://vstsagentpackage.azureedge.net/agent/2.213.2/vsts-agent-win-x64-2.213.2.zip
-  + Install (in PowerShell) --> `mkdir agent ; cd agent; Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory("$HOME\Downloads\vsts-agent-win-x64-2.213.2.zip", "$PWD")`
+  + Install (in PowerShell) --> `cd / ; mkdir agent ; cd agent; Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory("$HOME\Downloads\vsts-agent-win-x64-2.213.2.zip", "$PWD")`
   + Config/Setup `./config.cmd --gituseschannel`
   + Run --> `./run.cmd`
   + Test --> `curl -v https://tfs.com/tfs`
