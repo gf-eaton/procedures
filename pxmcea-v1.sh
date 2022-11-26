@@ -94,6 +94,8 @@ dbinstall telemetry Security
 sqlmonitor telemetry --username=SYSADM --password=Security --interval=30 --stop=5 --top=5
 #sqlmonitor telemetry --username=SYSADM --password=Security --program=ExampleProgram --benchmark --order=server_requests
 miminfo telemetry -p
+bsql telemetry -u sysadm -p Security -q "create sequence seq_telemetry start with 1;"
+bsql telemetry -u sysadm -p Security -q "create table telemetry (rowid bigint default next value for seq_telemetry, iot boolean default false, ts timestamp, att bigint, val decimal(16,6));"
 echo "sleep 10" ; sleep 10
 #---------------------------------------------------------------------------------------------------------
 # Step 5 system cron
@@ -212,7 +214,7 @@ service postgresql restart
 
 ss -nlt | grep 5432
 
-psql -d telemetry -U pxmcea -h localhost -c "CREATE table telemetry(ts timestamp, attribute bigint, val decimal(12,6));"
+psql -d telemetry -U pxmcea -h localhost -c "CREATE table telemetry(rowid SERIAL, iot boolean default false, ts timestamp, att bigint, val decimal(16,6));"
 sleep 6
 #---------------------------------------------------------------------------------------------------------
 # Step 10 git config
