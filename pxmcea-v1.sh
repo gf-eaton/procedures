@@ -96,6 +96,8 @@ sqlmonitor telemetry --username=SYSADM --password=Security --interval=30 --stop=
 miminfo telemetry -p
 bsql telemetry -u sysadm -p Security -q "create sequence seq_telemetry start with 1;"
 bsql telemetry -u sysadm -p Security -q "create table telemetry (rowid bigint default next value for seq_telemetry, iot boolean default false, ts timestamp, att bigint, val decimal(16,6));"
+bsql telemetry -u sysadm -p Security -q "create sequence seq_health start with 1;"
+bsql telemetry -u sysadm -p Security -q "create table health (rowid bigint default next value for seq_health, iot boolean, ts timestamp, att bigint, val decimal(16,6));"
 echo "sleep 10" ; sleep 10
 #---------------------------------------------------------------------------------------------------------
 # Step 5 system cron
@@ -214,7 +216,8 @@ service postgresql restart
 
 ss -nlt | grep 5432
 
-psql -d telemetry -U pxmcea -h localhost -c "CREATE table telemetry(rowid SERIAL, iot boolean default false, ts timestamp, att bigint, val decimal(16,6));"
+psql -d telemetry -U pxmcea -h localhost -c "CREATE TABLE telemetry(rowid SERIAL, iot boolean default false, ts timestamp, att bigint, val decimal(16,6));"
+psql -d telemetry -U pxmcea -h 10.106.86.27 -c "CREATE TABLE health(rowid SERIAL, iot boolean default false, ts timestamp, att bigint, val decimal(16,6));"
 sleep 6
 #---------------------------------------------------------------------------------------------------------
 # Step 10 git config
