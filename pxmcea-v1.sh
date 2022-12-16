@@ -61,6 +61,9 @@ echo "sleep 5" ; sleep 5
 # Step 2 tools/lib
 apt update ; apt upgrade -y
 apt install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev ca-certificates
+apt install -y python-is-python3
+apt remove -y python2.7 python2.7-minimal
+apt autoremove -y
 sleep 5
 #---------------------------------------------------------------------------------------------------------
 # Step 3 dot NET 6
