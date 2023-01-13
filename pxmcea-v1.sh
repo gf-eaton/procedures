@@ -109,6 +109,7 @@ if [ $? -eq 1 ] ; then
   echo "@reboot /usr/bin/mkfifo /tmp/iot.pipe /tmp/ui.pipe" >> /tmp/crontab
   echo "@reboot /usr/bin/sleep 1 ; /usr/bin/date >> /tmp/reboot.log ; /usr/bin/sleep 2 ; /usr/bin/ls -lahs /tmp/*.pipe >> /tmp/reboot.log ; echo '---------------------------' >> /tmp/reboot.log" >> /tmp/crontab
   echo "0 1 * * 1 apt update ; apt upgrade -y" >> /tmp/crontab
+  echo "0 1 * * 1 pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U" >> /tmp/crontab
   crontab /tmp/crontab
 fi
 #---------------------------------------------------------------------------------------------------------
