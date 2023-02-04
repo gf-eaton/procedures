@@ -236,6 +236,14 @@ cat > .gitconfig <<EOF
 [https]
         proxy = http://proxy.etn.com:8080
 EOF
+# Alternative way (required)
+git config --global user.name rootCM4
+git config --global user.email pxmcea@eaton.com
+git config --global http.proxy http://proxy.etn.com:8080
+git config --global http.sslVerify false
+git config --global https.proxy http://proxy.etn.com:8080
+git config --global core.eol lf
+git config --global core.autocrlf input
 #
 #
 echo "Finish."
