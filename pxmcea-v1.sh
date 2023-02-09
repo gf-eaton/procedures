@@ -64,6 +64,12 @@ apt install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uu
 apt install -y python-is-python3
 apt remove -y python2.7 python2.7-minimal
 apt autoremove -y
+apt install -y ntp ntpdate
+cat > /etc/ntp.conf <<EOF
+server ca.pool.ntp.org prefer iburst
+EOF
+systemctl restart ntp
+ntpq -p
 sleep 5
 #---------------------------------------------------------------------------------------------------------
 # Step 3 dot NET 6
