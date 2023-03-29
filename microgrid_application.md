@@ -55,7 +55,12 @@ Required
  - [ ] 6. netdata
  - [ ] 7. nodeJS
  - [ ] 8. git
- - [ ] 9. PXMCEA services (systemd) --> to come
+
+Future
+ - [ ] 9. HOW TO deploy systemd services --> rca, eca, wca (IoT agent)
+
+Optional
+ - [ ] 10. [HOW TO install DevOps pipeline Agent](./DevOps-Agent.MD) 
 
 call using `wget -O - https://raw.githubusercontent.com/gf-eaton/procedures/main/pxmcea-v2.sh | bash`
 
