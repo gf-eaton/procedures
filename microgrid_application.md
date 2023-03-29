@@ -50,11 +50,12 @@ Required
  - [ ] 1. Eaton Certficate
  - [ ] 2. System tools (lib, compiler,...)
  - [ ] 3. .NET Core 6
- - [ ] 4. PostgreSQL (faster)
+ - [ ] 4. PostgreSQL 13 (faster than MySQL, Mimer, SQLite)
  - [ ] 5. System cron
  - [ ] 6. netdata
  - [ ] 7. nodeJS
- - [ ] 8. PXMCEA services (systemd)
+ - [ ] 8. git
+ - [ ] 9. PXMCEA services (systemd) --> to come
 
 call using `wget -O - https://raw.githubusercontent.com/gf-eaton/procedures/main/pxmcea-v2.sh | bash`
 
