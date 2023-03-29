@@ -72,14 +72,19 @@ systemctl restart ntp
 ntpq -p
 sleep 5
 #---------------------------------------------------------------------------------------------------------
-# Step 3 dot NET 6
+# Step 3 dot NET 6 multi architecture/CPU
 apt update ; apt upgrade -y ; apt install -y fuse3
 cd
 rm -fr /opt/dotnet
-wget -nc https://download.visualstudio.microsoft.com/download/pr/901f7928-5479-4d32-a9e5-ba66162ca0e4/d00b935ec4dc79a27f5bde00712ed3d7/dotnet-sdk-6.0.400-linux-arm64.tar.gz
+CPU=`uname -p`
+if [ $CPU == "x86_64" ] ; then
+  wget -O dotnet-sdk-6.tar.gz -nc https://download.visualstudio.microsoft.com/download/pr/868b2f38-62ca-4fd8-93ea-e640cf4d2c5b/1e615b6044c0cf99806b8f6e19c97e03/dotnet-sdk-6.0.407-linux-x64.tar.gz
+else
+  wget -O dotnet-sdk-6.tar.gz -nc https://download.visualstudio.microsoft.com/download/pr/72d1f83c-ad2c-4c9b-88b1-15196f411b9d/a0b863cabea9ac0fe7b92dc70c8d4ef0/dotnet-sdk-6.0.407-linux-arm64.tar.gz
+fi
 echo "please wait this may take a minute or two ..."
 mkdir -p /opt/dotnet 
-tar zxf dotnet-sdk-6.0.400-linux-arm64.tar.gz -C /opt/dotnet
+tar zxf dotnet-sdk-6.tar.gz -C /opt/dotnet
 cd
 grep "export PATH=$PATH:/opt/dotnet" .bashrc
 if [ $? -eq 1 ] ; then
