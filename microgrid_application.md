@@ -40,7 +40,7 @@ call using `wget -O - https://raw.githubusercontent.com/gf-eaton/procedures/main
 
 #### Version 2
 
-This version is the result of 10 months testing and only mandatory components are installed.  Fully tested. Secured. Fast. Auto maintenance for Dummy.
+This version is the result of 10 months testing and only mandatory components are installed.  Fully tested. Secured. Fast. Auto maintenance.
 
 Ideal OS : Debian 11 (or latest)
 Ideal HW : 4 core cpu, 4GB RAM, 16GB/32GB storage
