@@ -20,18 +20,43 @@ Before you start :
 
 ### Script
 
-0. Networking
-1. Eaton Certficate
-2. System tools (lib, compiler,...)
-3. .NET Core 6
-4. Mimer SQL
-5. System cron
-6. netdata
-7. nodeJS
-8. systemd-nspawn (paused for now, not complete, will be back to this)
-9. webhook for DevOps CI/CD integration
+#### Version 1
+
+Required
+ - [ ] 0. Networking
+ - [ ] 1. Eaton Certficate
+ - [ ] 2. System tools (lib, compiler,...)
+ - [ ] 3. .NET Core 6
+ - [ ] 4. Mimer SQL or PostgreSQL (faster)
+ - [ ] 5. System cron (task)
+ - [ ] 6. netdata
+ - [ ] 7. nodeJS
+
+Optional
+ - [ ] 8. systemd-nspawn (paused for now, not complete, will be back to this)
+ - [ ] 9. webhook for DevOps CI/CD integration (not so good)
 
 call using `wget -O - https://raw.githubusercontent.com/gf-eaton/procedures/main/pxmcea-v1.sh | bash`
+
+#### Version 2
+
+This version is the result of 10 months testing and only mandatory components are installed.  Fully tested. Secured. Fast. Auto maintenance for Dummy.
+
+Ideal OS : Debian 11 (or latest)
+Ideal HW : 4 core cpu, 4GB RAM, 16GB/32GB storage
+
+Required
+ - [ ] 0. Networking
+ - [ ] 1. Eaton Certficate
+ - [ ] 2. System tools (lib, compiler,...)
+ - [ ] 3. .NET Core 6
+ - [ ] 4. PostgreSQL (faster)
+ - [ ] 5. System cron
+ - [ ] 6. netdata
+ - [ ] 7. nodeJS
+ - [ ] 8. PXMCEA services (systemd)
+
+call using `wget -O - https://raw.githubusercontent.com/gf-eaton/procedures/main/pxmcea-v2.sh | bash`
 
 ---
 by GF MIT 2022
