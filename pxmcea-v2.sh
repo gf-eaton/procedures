@@ -1,8 +1,11 @@
 #!/bin/bash
 #
 # 2022-08-02 GF
+# required : Debian OS latest (fresh install)
 # must be ran as : root
 # execution : wget -O - https://raw.githubusercontent.com/gf-eaton/procedures/main/pxmcea-v2.sh | bash
+#---------------------------------------------------------------------------------------------------------
+SKIP_OPTIONAL=1 #skip optional
 #---------------------------------------------------------------------------------------------------------
 # Step 0 networking
 echo "net.ipv6.conf.all.disable_ipv6=1" >> /etc/sysctl.conf
@@ -58,7 +61,7 @@ if [ $? -eq 1 ] ; then
 fi
 echo "sleep 5" ; sleep 5
 #---------------------------------------------------------------------------------------------------------
-# Step 2 tools/lib
+# Step 2 update and tools/lib
 apt update ; apt upgrade -y
 apt install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev ca-certificates
 apt install -y python-is-python3
@@ -119,10 +122,10 @@ ss -nlt | grep 5432
 
 psql -d telemetry -U pxmcea -h localhost -c "CREATE TABLE telemetry(rowid SERIAL, iot boolean default false, ts timestamp, att bigint, val decimal(16,6));"
 psql -d telemetry -U pxmcea -h 10.106.86.27 -c "CREATE TABLE health(rowid SERIAL, iot boolean default false, ts timestamp, att bigint, val decimal(16,6));"
-sleep 6
+sleep 10
 #---------------------------------------------------------------------------------------------------------
 # Step 5 system cron
-grep "@reboot /usr/bin/mkfifo /tmp/iot.pipe" /etc/crontab
+grep "0 1 * * 1 apt update ; apt upgrade -y" /etc/crontab
 if [ $? -eq 1 ] ; then
   echo "0 1 * * 1 apt update ; apt upgrade -y" >> /tmp/crontab
   echo "0 1 * * 1 conda update -n base -c defaults conda --yes" >> /tmp/crontab
@@ -130,21 +133,7 @@ if [ $? -eq 1 ] ; then
   crontab /tmp/crontab
 fi
 #---------------------------------------------------------------------------------------------------------
-# Step 6 netdata (monitoring device simply)
-wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --no-updates --non-interactive --stable-channel
-touch /etc/netdata/.opt-out-from-anonymous-statistics
-systemctl restart netdata
-#---------------------------------------------------------------------------------------------------------
-# Step 7 nodeJS (delivering rich application faster)
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-source .bashrc
-nvm --version
-nvm ls-remote
-nvm install node
-node --version
-npm --version
-#---------------------------------------------------------------------------------------------------------
-# Step 8 git config
+# Step 6 git config
 cd
 #cat > .gitconfig <<EOF
 #[user]
@@ -164,6 +153,24 @@ git config --global http.sslVerify false
 git config --global https.proxy http://proxy.etn.com:8080
 git config --global core.eol lf
 git config --global core.autocrlf input
+#---------------------------------------------------------------------------------------------------------
+# Step 7 netdata (monitoring device simply - optional)
+if [ SKIP_OPTIONAL -eq 0 ] ; then
+  wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --no-updates --non-interactive --stable-channel
+  touch /etc/netdata/.opt-out-from-anonymous-statistics
+  systemctl restart netdata
+fi
+#---------------------------------------------------------------------------------------------------------
+# Step 8 nodeJS (delivering rich application faster - optional)
+if [ SKIP_OPTIONAL -eq 0 ] ; then
+  wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+  source .bashrc
+  nvm --version
+  nvm ls-remote
+  nvm install node
+  node --version
+  npm --version
+fi
 #
 #
 echo "Finish. Thanks for using this script."
