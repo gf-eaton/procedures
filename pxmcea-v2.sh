@@ -16,9 +16,8 @@ echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 echo 'export http_proxy="http://proxy.etn.com:8080"' >> /etc/environment
 echo 'export https_proxy="http://proxy.etn.com:8080"' >> /etc/environment
 echo 'export no_proxy=" localhost, 127.0.0.1"' >> /etc/environment
-echo 'Defaults       env_keep+="http_proxy https_proxy no_proxy"' >> /etc/sudoers.new
-visudo -s -c -f /etc/sudoers.new
-rm -f /etc/sudoers.new
+echo 'Defaults       env_keep+="http_proxy https_proxy no_proxy"' >> /etc/sudoers
+visudo -s -c
 #---------------------------------------------------------------------------------------------------------
 # Step 1 certificate
 cd
