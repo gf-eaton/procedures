@@ -6,6 +6,7 @@
 # execution : wget -O - https://raw.githubusercontent.com/gf-eaton/procedures/main/pxmcea-v2.sh | bash
 #---------------------------------------------------------------------------------------------------------
 SKIP_OPTIONAL=1 #skip optional
+SKIP_DATABASE=1 #skip optional database creation see initDB.sh
 #---------------------------------------------------------------------------------------------------------
 # Step 0 networking
 echo "net.ipv6.conf.all.disable_ipv6=1" >> /etc/sysctl.conf
@@ -112,22 +113,27 @@ apt update ; apt upgrade -y ; apt autoremove
 apt install -y postgresql postgresql-contrib
 service postgresql status
 ps -ef | grep postgres
-sudo su - postgres -c "createuser pxmcea"
-sudo su - postgres -c "createdb telemetry"
-sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE telemetry TO pxmcea;"
-
 echo "listen_addresses = '*'" >> /etc/postgresql/13/main/postgresql.conf
 cat /etc/postgresql/13/main/postgresql.conf | grep listen_address
 
+# for connecting telemetry database from remote
 echo "host    telemetry       pxmcea          0.0.0.0/0               trust" >> /etc/postgresql/13/main/pg_hba.conf
+# for pgadmin to work from remote
+echo "host    postgres        postgres        0.0.0.0/0               password" >> /etc/postgresql/13/main/pg_hba.conf
 cat /etc/postgresql/13/main/pg_hba.conf
 
 service postgresql restart
 
 ss -nlt | grep 5432
 
-psql -d telemetry -U pxmcea -h localhost -c "CREATE TABLE telemetry(rowid SERIAL, iot boolean default false, ts timestamp, att bigint, val decimal(16,6));"
-psql -d telemetry -U pxmcea -h 10.106.86.27 -c "CREATE TABLE health(rowid SERIAL, iot boolean default false, ts timestamp, att bigint, val decimal(16,6));"
+if [ SKIP_DATABASE -eq 0 ] ; then
+  sudo su - postgres -c "createuser pxmcea"
+  sudo su - postgres -c "createdb telemetry"
+  sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'SetNewPasswordNow!';"
+  sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE telemetry TO pxmcea;"
+  sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'SetNewPasswordNow!';"
+  psql -d telemetry -U pxmcea -h localhost -c "CREATE TABLE IF NOT EXISTS public.telemetry (rowid SERIAL NOT NULL, iot boolean DEFAULT false, ts timestamp without time zone, att bigint, val numeric(16,6), dwrite timestamp without time zone DEFAULT timezone('utc'::text, now()));"
+fi
 sleep 10
 #---------------------------------------------------------------------------------------------------------
 # Step 5 system cron
