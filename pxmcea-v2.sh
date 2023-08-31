@@ -82,9 +82,9 @@ server ca.pool.ntp.org prefer iburst
 EOF
 systemctl restart ntp
 ntpq -p
-sleep 5
+echo "sleep 5" ; sleep 5
 #---------------------------------------------------------------------------------------------------------
-# Step 3 dot NET 6 multi architecture/CPU
+# Step 3a dot NET 6 multi architecture/CPU
 if [ SKIP_DOTNET6 -eq 0 ] ; then
 apt update ; apt upgrade -y ; apt install -y fuse3
 cd
@@ -112,13 +112,14 @@ dotnet --list-sdks
 echo "sleep 10" ; sleep 10
 fi
 #---------------------------------------------------------------------------------------------------------
-# Step 3 dot NET 7 multi architecture/CPU
+# Step 3b dot NET 7 multi architecture/CPU
 if [ SKIP_DOTNET7 -eq 0 ] ; then
   cd
+  apt update ; apt upgrade -y
   wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
   dpkg -i packages-microsoft-prod.deb
   rm packages-microsoft-prod.deb
-  apt update && apt install -y dotnet-sdk-7.0
+  apt install -y dotnet-sdk-7.0
   apt autoremove -y
 fi
 #---------------------------------------------------------------------------------------------------------
@@ -161,19 +162,8 @@ if [ $? -eq 1 ] ; then
   crontab /tmp/crontab
 fi
 #---------------------------------------------------------------------------------------------------------
-# Step 6 git config
+# Step 6 git config (required)
 cd
-#cat > .gitconfig <<EOF
-#[user]
-#        name = rootCM4
-#        email = pxmcea@eaton.com
-#[http]
-#        proxy = http://proxy.etn.com:8080
-#        sslVerify = false
-#[https]
-#        proxy = http://proxy.etn.com:8080
-#EOF
-# Alternative way (required)
 git config --global user.name rootCM4
 git config --global user.email pxmcea@eaton.com
 git config --global http.proxy http://proxy.etn.com:8080
