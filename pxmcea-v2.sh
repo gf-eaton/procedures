@@ -7,6 +7,8 @@
 #---------------------------------------------------------------------------------------------------------
 SKIP_OPTIONAL=1 #skip optional
 SKIP_DATABASE=1 #skip optional database creation see initDB.sh
+SKIP_DOTNET6=1
+SKIP_DOTNET7=1
 #---------------------------------------------------------------------------------------------------------
 # Step 0 networking
 echo "net.ipv6.conf.all.disable_ipv6=1" >> /etc/sysctl.conf
@@ -83,6 +85,7 @@ ntpq -p
 sleep 5
 #---------------------------------------------------------------------------------------------------------
 # Step 3 dot NET 6 multi architecture/CPU
+if [ SKIP_DOTNET6 -eq 0 ] ; then
 apt update ; apt upgrade -y ; apt install -y fuse3
 cd
 rm -fr /opt/dotnet
@@ -107,6 +110,17 @@ dotnet --info
 dotnet --list-sdks
 
 echo "sleep 10" ; sleep 10
+fi
+#---------------------------------------------------------------------------------------------------------
+# Step 3 dot NET 7 multi architecture/CPU
+if [ SKIP_DOTNET7 -eq 0 ] ; then
+  cd
+  wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+  dpkg -i packages-microsoft-prod.deb
+  rm packages-microsoft-prod.deb
+  apt update && apt install -y dotnet-sdk-7.0
+  apt autoremove -y
+fi
 #---------------------------------------------------------------------------------------------------------
 # Step 4 postgres 13.8+ (This was used and benchmarked against MimerSQL in C# initialy)
 apt update ; apt upgrade -y ; apt autoremove
@@ -127,19 +141,21 @@ service postgresql restart
 ss -nlt | grep 5432
 
 if [ SKIP_DATABASE -eq 0 ] ; then
+  cd /
   sudo su - postgres -c "createuser pxmcea"
   sudo su - postgres -c "createdb telemetry"
   sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'SetNewPasswordNow!';"
   sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE telemetry TO pxmcea;"
-  sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'SetNewPasswordNow!';"
+  sudo -u postgres psql -c "ALTER USER pxmcea WITH PASSWORD 'SetNewPasswordNow!';"
   psql -d telemetry -U pxmcea -h localhost -c "CREATE TABLE IF NOT EXISTS public.telemetry (rowid SERIAL NOT NULL, iot boolean DEFAULT false, ts timestamp without time zone, att bigint, val numeric(16,6), dwrite timestamp without time zone DEFAULT timezone('utc'::text, now()));"
+  cd
 fi
 sleep 10
 #---------------------------------------------------------------------------------------------------------
 # Step 5 system cron
-grep "0 1 * * 1 apt update ; apt upgrade -y" /etc/crontab
+grep "0 1 * * 1 apt update ; apt upgrade -y ; apt autoremove -y" /etc/crontab
 if [ $? -eq 1 ] ; then
-  echo "0 1 * * 1 apt update ; apt upgrade -y" >> /tmp/crontab
+  echo "0 1 * * 1 apt update ; apt upgrade -y ; apt autoremove -y" >> /tmp/crontab
   echo "0 1 * * 1 conda update -n base -c defaults conda --yes" >> /tmp/crontab
   echo "0 1 * * 1 pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U" >> /tmp/crontab
   crontab /tmp/crontab
