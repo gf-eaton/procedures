@@ -2,9 +2,9 @@
 mkdir -p /mnt/sda/data
 chown postgres:postgres /mnt/sda/data
 
-su - postgres -c "psql -c \"ALTER USER postgres WITH PASSWORD 'Security*8';\" "
+su - postgres -c "psql -c \"ALTER USER postgres WITH PASSWORD 'SetPasswordNow!';\" "
 su - postgres -c "createuser pxmcea"
-su - postgres -c "psql -c \"ALTER USER pxmcea WITH PASSWORD 'Security*8';\" "
+su - postgres -c "psql -c \"ALTER USER pxmcea WITH PASSWORD 'SetPasswordNow!';\" "
 su - postgres -c "createdb telemetry"
 su - postgres -c "psql -c \"GRANT ALL PRIVILEGES ON DATABASE telemetry TO pxmcea;\" "
 su - postgres -c "mkdir -p /mnt/sda/data/ts_archive_2023"
