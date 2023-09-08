@@ -181,7 +181,8 @@ fi
 #---------------------------------------------------------------------------------------------------------
 # Step 8 nodeJS (delivering rich application faster - optional)
 if [ SKIP_OPTIONAL -eq 0 ] ; then
-  wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+  cd
+  wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
   source .bashrc
   nvm --version
   nvm ls-remote
