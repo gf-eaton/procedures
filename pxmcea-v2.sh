@@ -142,14 +142,31 @@ service postgresql restart
 ss -nlt | grep 5432
 
 if [ SKIP_DATABASE -eq 0 ] ; then
-  cd /
-  sudo su - postgres -c "createuser pxmcea"
-  sudo su - postgres -c "createdb telemetry"
-  sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'SetNewPasswordNow!';"
-  sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE telemetry TO pxmcea;"
-  sudo -u postgres psql -c "ALTER USER pxmcea WITH PASSWORD 'SetNewPasswordNow!';"
-  psql -d telemetry -U pxmcea -h localhost -c "CREATE TABLE IF NOT EXISTS public.telemetry (rowid SERIAL NOT NULL, iot boolean DEFAULT false, ts timestamp without time zone, att bigint, val numeric(16,6), dwrite timestamp without time zone DEFAULT timezone('utc'::text, now()));"
-  cd
+  sudo
+  if [ "$?" -eq "1" ] ; then
+    cd /
+    sudo su - postgres -c "createuser pxmcea"
+    sudo su - postgres -c "createdb telemetry"
+    sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'SetNewPasswordNow!';"
+    sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE telemetry TO pxmcea;"
+    sudo -u postgres psql -c "ALTER DATABASE telemetry OWNER TO pxmcea;" #EXTRA security in postgres 15.3+ must be owner to be able to create table in public schema
+    sudo -u postgres psql -c "ALTER USER pxmcea WITH PASSWORD 'SetNewPasswordNow!';"
+    psql -d telemetry -U pxmcea -h localhost -c "DROP TABLE public.telemetry;"
+    psql -d telemetry -U pxmcea -h localhost -c "CREATE TABLE IF NOT EXISTS public.telemetry (rowid SERIAL NOT NULL, iot boolean DEFAULT false, ts timestamp without time zone, att bigint, val numeric(16,6), dwrite timestamp without time zone DEFAULT timezone('utc'::text, now()));"
+    psql -d telemetry -U pxmcea -h localhost -c "ALTER TABLE IF EXISTS public.telemetry SET (autovacuum_enabled = true);"
+    cd
+  else
+    echo "sudo is not installed... we use alternative"
+    su - postgres -c "createuser pxmcea"
+    su - postgres -c "createdb telemetry"
+    su - postgres -c 'psql -c "ALTER USER postgres WITH PASSWORD 'SetNewPasswordNow!';"'
+    su - postgres -c 'psql -c "GRANT ALL PRIVILEGES ON DATABASE telemetry TO pxmcea;"' #GRANT ALL ON DATABASE mydb TO admin;
+    su - postgres -c 'psql -c "ALTER DATABASE telemetry OWNER TO pxmcea;"' #EXTRA security in postgres 15.3+ must be owner to be able to create table in public schema
+    su - postgres -c 'psql -c "ALTER USER pxmcea WITH PASSWORD 'SetNewPasswordNow!';"'
+    psql -d telemetry -U pxmcea -h localhost -c "DROP TABLE public.telemetry;"
+    psql -d telemetry -U pxmcea -h localhost -c "CREATE TABLE IF NOT EXISTS public.telemetry (rowid SERIAL NOT NULL, iot boolean DEFAULT false, ts timestamp without time zone, att bigint, val numeric(16,6), dwrite timestamp without time zone DEFAULT timezone('utc'::text, now()));"
+    psql -d telemetry -U pxmcea -h localhost -c "ALTER TABLE IF EXISTS public.telemetry SET (autovacuum_enabled = true);"
+  fi
 fi
 sleep 10
 #---------------------------------------------------------------------------------------------------------
