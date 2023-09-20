@@ -123,19 +123,19 @@ if [ SKIP_DOTNET7 -eq 0 ] ; then
   apt autoremove -y
 fi
 #---------------------------------------------------------------------------------------------------------
-# Step 4 postgres 13.8+ (This was used and benchmarked against MimerSQL in C# initialy)
+# Step 4 postgres 13.8+ or 15.3+ (PostgreSQL was benchmarked against MimerSQL initialy)
 apt update ; apt upgrade -y ; apt autoremove
 apt install -y postgresql postgresql-contrib
 service postgresql status
-ps -ef | grep postgres
-echo "listen_addresses = '*'" >> /etc/postgresql/13/main/postgresql.conf
-cat /etc/postgresql/13/main/postgresql.conf | grep listen_address
+pg_config --version ; psql --version ; ps -ef | grep postgres
+echo "listen_addresses = '*'" >> /etc/postgresql/*/main/postgresql.conf && echo "sucess modifying postgresql.conf, required for remove connections ..."
+cat /etc/postgresql/*/main/postgresql.conf | grep listen_address
 
 # for connecting telemetry database from remote
-echo "host    telemetry       pxmcea          0.0.0.0/0               trust" >> /etc/postgresql/13/main/pg_hba.conf
+echo "host    telemetry       pxmcea          0.0.0.0/0               trust" >> /etc/postgresql/*/main/pg_hba.conf && echo "success modifying pg_hba.conf"
 # for pgadmin to work from remote
-echo "host    postgres        postgres        0.0.0.0/0               password" >> /etc/postgresql/13/main/pg_hba.conf
-cat /etc/postgresql/13/main/pg_hba.conf
+echo "host    postgres        postgres        0.0.0.0/0               password" >> /etc/postgresql/*/main/pg_hba.conf && echo "sucess modifying pg_hba.conf"
+cat /etc/postgresql/*/main/pg_hba.conf
 
 service postgresql restart
 
