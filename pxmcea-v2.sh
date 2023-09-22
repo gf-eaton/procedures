@@ -72,9 +72,10 @@ echo "sleep 5" ; sleep 5
 #---------------------------------------------------------------------------------------------------------
 # Step 2 update and tools/lib
 apt update ; apt upgrade -y
-apt install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev ca-certificates screen
+apt install -y git cmake ninja-build rsync build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev ca-certificates screen
 apt install -y python-is-python3
 apt remove -y python2.7 python2.7-minimal
+apt remove -y python2*
 apt autoremove -y
 apt install -y ntp ntpdate
 cat > /etc/ntp.conf <<EOF
