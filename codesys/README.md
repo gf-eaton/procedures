@@ -12,7 +12,7 @@ You should find all the necessary in the folder.
 - a) Install SMP manager **file:** `SMP DA-3000 Firmware and Tools 1.0B18.exe`
 - b) Install CoDeSys 3.5.19.20 64bit **file:** `CODESYS 64 3.5.19.20.exe`
 - c) Use Codesys Installer
-  + Click --> Change > Import Configuration > Select(3PSP19config.installation-config)
+  + Click --> Change > Import Configuration > Select(`3PSP19config.installation-config`)
   + Click --> Install Files > Select(`SMP.package`)
 - d) Use Cmd (administrator)
   + `netsh advfirewall firewall add rule name="CodeMeter (Codesys)" dir=in action=allow program=" C:\Program Files (x86)\CodeMeter\Runtime\bin\CodeMeter.exe" enable=yes`
