@@ -17,7 +17,7 @@ You should find all the necessary in the folder.
 - d) Use Cmd (administrator)
   + `netsh advfirewall firewall add rule name="CodeMeter (Codesys)" dir=in action=allow program=" C:\Program Files (x86)\CodeMeter\Runtime\bin\CodeMeter.exe" enable=yes`
 - e) In task/traybar (Windows Clock)
-  + RightClick CmContainers (CodeMeter) > WebAdmin > Configuration > Set manual proxy : `proxy.etn.com:8080`
+  + RightClick --> CmContainers (CodeMeter) > WebAdmin > Configuration > Set manual proxy : `proxy.etn.com:8080`
 
 Reference :
 - SMP config (tool)
@@ -32,12 +32,12 @@ Reference :
 **BE PATIENT IT COULD TAKE TIME**
 
 - a) add a device in smp manager
-  + enter --> name, ip and .par file
+  + enter --> name, ip and use .par file
 
 - b) right click on new device
    + pick --> smp Config (CTRL+1)
 
 - c) once in smpConfig
-  + navigate --> system > SoftPLC  > plc . rightclick edit/refresh Codesys project
+  + navigate --> system > SoftPLC  > plc . rightclick --> edit/refresh Codesys project
 
 - **fin** --> Once in CoDeSys you should be good to go.
