@@ -25,7 +25,7 @@ Reference :
 - SMP library for CoDeSys
   + `\\casrospfp01\Daily Builds\SMP\SoftAndTools\Current\Components\Tools\CODESYS\`
  
-# Step 1 validate installation
+# Step 1 validate installation `use CoDeSys`
 
 **At this point you should have :** `smpmanager, codesys, smp lib for codesys` installed.
 
