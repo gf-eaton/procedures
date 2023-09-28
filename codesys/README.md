@@ -35,6 +35,7 @@ Reference :
   + enter --> name, ip and use .par file
 
 - b) right click on new device
+   + pick --> Get Configuration file
    + pick --> smp Config (CTRL+1)
 
 - c) once in smpConfig
