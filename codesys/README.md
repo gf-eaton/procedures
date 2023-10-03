@@ -2,6 +2,7 @@ All the steps are included in one HOW TO file (for now)
 
 - Level of difficulty : `Low`
 - Time to complete : `3 hours`
+- in linux files should be `UTF-8` or ascii with `LF`
 
 # Step 0 installation
 
@@ -42,3 +43,44 @@ Reference :
   + navigate --> system > SoftPLC  > plc . rightclick --> edit/refresh Codesys project
 
 - **fin** --> Once in CoDeSys you should be good to go.
+
+---
+
+
+# How to update firmware of DA-3000
+
+- [ ] We use `ssh` for the following tasks.
+- [ ] **FIRMWARE** Locat : `\\casrospfp01\Official Builds\DA\1.0R\Components\Firmware\Images\SMPDA3050\001.000.026.000\Export\smp`
+- [ ] **hw.txt** : you need to put the smp manager in debug mode use `SMPToolsRegEdit.exe`
+
+```
+#check version installed
+cat /etc/os-release #or sys-info
+```
+
+- Procedure to update the firmware
+```
+cd /var/smp/new 
+# copy boot file in folder and reboot now
+cd /var/smp/new
+# copy set file in folder and reboot now
+cd /var/smp/new
+# copy dev file in folder and reboot now
+cd /var/smp/conf
+# NO NEED TO REBOOT
+# copy le hw.xml
+```
+
+---
+
+# HOW to connect DA-3000 from CoDeSys
+
+- [ ] make sure you have CoDeSys Gataway running as a service.
+- [ ] make sure you have **right** FIRMWARE.
+
+
+### In CoDeSys 
+- Use Build menu
+  + Generate Code (F11)
+- Use Online Menu
+  + Click Login (Alt-F8)
