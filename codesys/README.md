@@ -73,7 +73,7 @@ cd /var/smp/conf
 
 ---
 
-# HOW to connect DA-3000 from CoDeSys
+# HOW to `build`, `connect` and `debug` DA-3000 from CoDeSys
 
 - [ ] make sure you have CoDeSys Gataway running as a service.
 - [ ] make sure you have __right__ FIRMWARE in target device.
@@ -84,6 +84,10 @@ cd /var/smp/conf
   + Generate Code (F11)
 - Use Online Menu
   + Click Login (Alt-F8)
+    + Gateway is `green` you good to go;
+    + Type ip of target device, then hit `enter`;
+  + Click Login (Alt-F8) again
+  + Click Run
  
 # How to configure a DA-3000 using smp config
 
