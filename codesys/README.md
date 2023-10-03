@@ -87,7 +87,7 @@ cd /var/smp/conf
     + Gateway is `green` you good to go;
     + Type ip of target device, then hit `enter`;
   + Click Login (Alt-F8) again
-  + Click Run
+- Click Run
  
 # How to configure a DA-3000 using smp config
 
