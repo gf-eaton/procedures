@@ -47,7 +47,7 @@ Reference :
 ---
 
 
-# How to update firmware of DA-3000
+# How to update firmware of DA-3000 (optional)
 
 - [ ] We use `ssh` for the following tasks.
 - [ ] **FIRMWARE** Locat : `\\casrospfp01\Official Builds\DA\1.0R\Components\Firmware\Images\SMPDA3050\001.000.026.000\Export\smp`
@@ -76,7 +76,7 @@ cd /var/smp/conf
 # HOW to connect DA-3000 from CoDeSys
 
 - [ ] make sure you have CoDeSys Gataway running as a service.
-- [ ] make sure you have **right** FIRMWARE.
+- [ ] make sure you have __right__ FIRMWARE in target device.
 
 
 ### In CoDeSys 
@@ -84,3 +84,15 @@ cd /var/smp/conf
   + Generate Code (F11)
 - Use Online Menu
   + Click Login (Alt-F8)
+ 
+# How to configure a DA-3000 using smp config
+
+This procedure is used to get value/live points.  This is required to see value change.  Important when the device is not physically connected.
+
+- [ ] Requires smp config version (or above) `SMP Gateway Software and Tools 8.3D 2023_08_03 b64000.exe`
+- [ ] smp config kwonledge
+
+```
+...
+```
+---
