@@ -92,6 +92,7 @@ This procedure is used to get value/live points.  This is required to see value 
 - [ ] Requires smp config version (or above) `SMP Gateway Software and Tools 8.3D 2023_08_03 b64000.exe`
 - [ ] smp config kwonledge
 
+### In smp-Config
 ```
 ...
 ```
