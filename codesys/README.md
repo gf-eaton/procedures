@@ -8,10 +8,13 @@ All the steps are included in one HOW TO file (for now)
 
 Do not alter files in folder `\\casrospfp01\Public\USERS\Guy Francoeur` as they are used by everyone
 
-You should find all the necessary in the folder.
+You should find all the necessary in the folder above. Process each step sequentially.
 
-- a) Install SMP manager **file:** `SMP DA-3000 Firmware and Tools 1.0B18.exe`
-- b) Install CoDeSys 3.5.19.20 64bit **file:** `CODESYS 64 3.5.19.20.exe`
+- a) Install SMP manager
+  + **use file**: `SMP Gateway Software and Tools 8.3D 2023_08_03 b64000.exe`
+  + **use file**: `SMP DA-3000 Firmware and Tools 1.0B18.exe`
+- b) Install CoDeSys 3.5.19.20 64bit
+  + **use file**: `CODESYS 64 3.5.19.20.exe`
 - c) Use Codesys Installer
   + Click --> Change > Import Configuration > Select(`3PSP19config.installation-config`)
   + Click --> Install Files > Select(`SMP.package`)
