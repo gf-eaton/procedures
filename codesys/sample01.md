@@ -51,3 +51,11 @@ myVal := FPTR_CASE_A^;
 
 ...
 ```
+
+- IF DEFINE
+```
+AI_IN_INTERFACE{
+     if(LEGACY_CODESYS) then AI_IN(value)
+     else if (CODESYS_NG) (value.f=...)
+}
+```
