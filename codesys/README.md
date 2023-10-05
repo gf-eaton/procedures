@@ -98,15 +98,24 @@ cd /var/smp/conf
   + Click Login (Alt-F8) again
 - Click Run
  
-# How to configure a DA-3000 using smp config
+# How to configure a DA-3000 using smp config `IMPORTANT`
 
 This procedure is used to get value/live points.  This is required to see value change.  Important when the device is not physically connected.
 
 - [ ] Requires smp config version (or above) `SMP Gateway Software and Tools 8.3D 2023_08_03 b64000.exe`
-- [ ] smp config kwonledge
+- [ ] smp config knowledge
 
 ### In smp-Config
-```
-...
-```
+
+1.  Make sure the proper HW type is selected to match the physical device.
+2.  Important to make all warnings go away.
+3.  Once Clean up is done, Edit/Refresh Codesys.
+
+### In CoDeSys
+
+1.  Use Macro (in toolbar) Sync smp/da to CoDeSys `This will do magic to avoid issues`
+2.  Build to find invalid source code
+3.  Use Macro (in toolbar) Sync CoDeSys to smp/da `This will sync back to .par`
+
+- If you do not have the arrows in toolbar use : `Tools > Script > Execute script File > C:\programData\codesys\Script Commands\*.py`
 ---
