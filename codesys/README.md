@@ -54,7 +54,6 @@ Reference :
 
 - [ ] We use `ssh` for the following tasks.
 - [ ] **FIRMWARE** Location : `\\casrospfp01\Official Builds\DA\1.0R\Components\Firmware\Images\SMPDA3050\001.000.026.000\Export\smp`.
-- [ ] **hw.txt** : If you need to put the smp manager in debug mode use `SMPToolsRegEdit.exe`. Then capture the xml required for `hw.xml`.
 
 ```
 #check version installed
