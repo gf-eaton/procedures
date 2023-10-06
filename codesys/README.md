@@ -11,6 +11,9 @@ All the steps are included in one HOW TO file (for now)
 - [HOW to CoDeSys `build`, `connect` and `debug` DA-3000](#how-to-codesys)
 - [How to configure a DA3000](#how-to-configure-a-da3000)
 
+# Known facts
+- In CoDeSys 3.5.19 the Sync macro (toolbar arrows) do not sync properly
+
 # Step 0 installation
 
 Do not alter files in folder `\\casrospfp01\Public\USERS\Guy Francoeur` as they are used by everyone
@@ -91,7 +94,7 @@ cd /var/smp/conf
 ---
 
 # HOW to CoDeSys 
-## `build`, `connect` and `debug` DA-3000
+## `build`, `connect` and `debug` with DA-3000
 
 - [ ] make sure you have CoDeSys Gataway running as a service.
 - [ ] make sure you have __right__ FIRMWARE in target device.
