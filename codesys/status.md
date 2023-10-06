@@ -21,7 +21,6 @@ In a week I can say we are pretty much advance on the CoDeSys :
 
 ### Known Issues
  - [x] bug found in sync macro/function (in codesys for 3.5.19) this is under investigation for EAS
- - [ ] 
 
 ## Week : 2023-10-08 to 2023-1013
 
