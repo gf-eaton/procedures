@@ -2,7 +2,7 @@ Personnal notes on our avancé
 
 In a week I can say we are pretty much advance on the CoDeSys : 
 
- - [ ] (percentage) means how close to the goal fixed are we plus are we able to reproduce ?
+ - [ ] (percentage) means how close are we to the goal fixed, plus, are we able to reproduce ?
 
 ## Week : 2023-10-01 to 2023-10-06
 
