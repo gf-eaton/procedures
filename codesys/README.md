@@ -4,6 +4,13 @@ All the steps are included in one HOW TO file (for now)
 - Time to complete : `3 hours`
 - in linux files should be `UTF-8` or ascii with `LF`
 
+# Index
+- [Installation of CodeSys, SMP Manager ...](#step-0-installation)
+- [Start using installation of SMP Manager, SMP Config, CoDeSys](#step-1-validate-installation)
+- [How to Update Firmware on DA-3000 (optional)](#how-to-update-firmware)
+- [HOW to CoDeSys `build`, `connect` and `debug` DA-3000](#how-to-codesys)
+- [How to configure a DA3000](#how-to-configure-a-da3000)
+
 # Step 0 installation
 
 Do not alter files in folder `\\casrospfp01\Public\USERS\Guy Francoeur` as they are used by everyone
@@ -29,7 +36,7 @@ Reference :
 - SMP library for CoDeSys
   + `\\casrospfp01\Daily Builds\SMP\SoftAndTools\Current\Components\Tools\CODESYS\`
  
-# Step 1 validate installation `use CoDeSys`
+# Step 1 validate installation
 
 **At this point you should have :** `smpmanager, codesys, smp lib for codesys` installed.
 
@@ -50,7 +57,8 @@ Reference :
 ---
 
 
-# How to update firmware of DA-3000 (optional)
+# How to update firmware
+## of DA-3000 (optional)
 
 - [ ] We use `ssh` for the following tasks.
 - [ ] **FIRMWARE** Location : `\\casrospfp01\Official Builds\DA\1.0R\Components\Firmware\Images\SMPDA3050\001.000.026.000\Export\smp`.
@@ -82,7 +90,8 @@ cd /var/smp/conf
 
 ---
 
-# HOW to `build`, `connect` and `debug` DA-3000 from CoDeSys
+# HOW to CoDeSys 
+## `build`, `connect` and `debug` DA-3000
 
 - [ ] make sure you have CoDeSys Gataway running as a service.
 - [ ] make sure you have __right__ FIRMWARE in target device.
@@ -98,7 +107,8 @@ cd /var/smp/conf
   + Click Login (Alt-F8) again
 - Click Run
  
-# How to configure a DA-3000 using smp config `IMPORTANT`
+# How to configure a DA3000
+## using smp config `IMPORTANT`
 
 This procedure is used to get value/live points.  This is required to see value change.  Important when the device is not physically connected.
 
