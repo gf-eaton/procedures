@@ -23,8 +23,8 @@ You should find all the necessary in the folder above. Process each step sequent
 - a) Install SMP manager
   + **use file**: `SMP Gateway Software and Tools 8.3D 2023_08_03 b64000.exe`
   + **use file**: `SMP DA-3000 Firmware and Tools 1.0B18.exe`
-- b) Install CoDeSys 3.5.19.20 64bit
-  + **use file**: `CODESYS 64 3.5.19.20.exe`
+- b) Install CoDeSys `3.6.18` __NOTHING ELSE IS SUPPORTED__
+  + **use file**: ~~CODESYS 64 3.5.19.20.exe~~ `FILE TO COME`
 - c) Use Codesys Installer
   + Click --> Change > Import Configuration > Select(`3PSP19config.installation-config`)
   + Click --> Install Files > Select(`SMP.package`)
