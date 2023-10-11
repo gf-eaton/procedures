@@ -12,7 +12,8 @@ All the steps are included in one HOW TO file (for now)
 - [How to configure a DA3000](#how-to-configure-a-da3000)
 
 # Known facts
-- In CoDeSys 3.5.19 the Sync macro (toolbar arrows) do not sync properly
+- In CoDeSys 3.5.19 the Sync macro (toolbar arrows) do not sync properly;
+  + Workaround is to use 3.5.18.40 The only supported version as of 2023-10-11.
 
 # Step 0 installation
 
@@ -23,11 +24,11 @@ You should find all the necessary in the folder above. Process each step sequent
 - a) Install SMP manager
   + **use file**: `SMP Gateway Software and Tools 8.3D 2023_08_03 b64000.exe`
   + **use file**: `SMP DA-3000 Firmware and Tools 1.0B18.exe`
-- b) Install CoDeSys `3.6.18` __NOTHING ELSE IS SUPPORTED__
+- b) Install CoDeSys `3.5.18.40 64bit` __NOTHING ELSE IS SUPPORTED__
   + **use file**: ~~CODESYS 64 3.5.19.20.exe~~ `\\casrospfp01\Public\USERS\Dominique.Brochu\Codesys` `CODESYS 64 3.5.18.40.exe` 1.482GB 
 - c) Use Codesys Installer
-  + Click --> Change > Import Configuration > Select(`3PSP19config.installation-config`)
   + Click --> Install Files > Select(`SMP.package`)
+  + Optional : Click --> Change > Import Configuration > Select(`3PSP19config.installation-config`)
 - d) Use Cmd (administrator)
   + `netsh advfirewall firewall add rule name="CodeMeter (Codesys)" dir=in action=allow program=" C:\Program Files (x86)\CodeMeter\Runtime\bin\CodeMeter.exe" enable=yes`
 - e) In task/traybar (Windows Clock)
