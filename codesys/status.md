@@ -19,9 +19,10 @@ In a week I can say we are pretty much advance on the CoDeSys :
 
 ## Week : 2023-10-08 to 2023-10-13
 
-### Open
+### Close
  - [x] Phase 2a) DEV/EXP : state machine simulation : goal is to benchmark the PLC in a pseudo-real scenario with changing states (initiated)
  - [x] Phase 2b) DEV/EXP : dynamic config state/transition at runtime. Reload of config without build/rebuild (initiated)
+### Open
  - [ ] Phase 3) codesys migration, need some clarifications (blocked)
  - [ ] Test : Integrated testing initiated (initiated)
 
