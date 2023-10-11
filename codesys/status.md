@@ -29,5 +29,6 @@ In a week I can say we are pretty much advance on the CoDeSys :
 ### Known Issues
  - [ ] a bug exist in the sync mapping tool (plc to smp now)
      - we need to ask EAS the PUB/SUB .par file
+ - [ ] move to 3.5.18 should be next (from 3.5.19)
 
 ---
