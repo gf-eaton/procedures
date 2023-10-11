@@ -2,7 +2,7 @@ Personnal notes on our avancé
 
 In a week I can say we are pretty much advance on the CoDeSys : 
 
- - [ ] (percentage) means how close are we to the goal fixed, plus, are we able to reproduce ?
+- The (percentage) means how close are we to the goal fixed. Plus, it also include, are we able to reproduce ?
 
 ## Week : 2023-10-01 to 2023-10-06
 
@@ -20,9 +20,13 @@ In a week I can say we are pretty much advance on the CoDeSys :
 ## Week : 2023-10-08 to 2023-10-13
 
 ### Open
- - [ ] Phase 2a) DEV/EXP : state machine simulation : goal is to benchmark the PLC in a pseudo-real scenario with changing states (initiated)
- - [ ] Phase 2b) DEV/EXP : dynamic config state/transition at runtime. Reload of config without build/rebuild (initiated)
+ - [x] Phase 2a) DEV/EXP : state machine simulation : goal is to benchmark the PLC in a pseudo-real scenario with changing states (initiated)
+ - [x] Phase 2b) DEV/EXP : dynamic config state/transition at runtime. Reload of config without build/rebuild (initiated)
  - [ ] Phase 3) codesys migration, need some clarifications (blocked)
  - [ ] Test : Integrated testing initiated (initiated)
+
+### Known Issues
+ - [ ] a bug exist in the sync mapping tool (plc to smp now)
+     - we need to ask EAS the PUB/SUB .par file
 
 ---
