@@ -28,9 +28,9 @@ You should find all the necessary in the folder above. Process each step sequent
   + **use file**: `\\casrospfp01\Public\USERS\Dominique.Brochu\Codesys` `CODESYS 64 3.5.18.40.exe` 1.482GB ~~CODESYS 64 3.5.19.20.exe~~
 - c) Use Codesys Installer (Run as Administrator)
   + Click --> Install Files > Select(`SMP.package`)
-  + Optional : Click --> Change > Import Configuration > Select(`3PSP19config.installation-config`)
+  + Optional : ~~Click --> Change > Import Configuration > Select(`3PSP19config.installation-config`)~~
 - d) Use Cmd (administrator)
-  + Optional : `netsh advfirewall firewall add rule name="CodeMeter (Codesys)" dir=in action=allow program=" C:\Program Files (x86)\CodeMeter\Runtime\bin\CodeMeter.exe" enable=yes`
+  + Optional : ~~`netsh advfirewall firewall add rule name="CodeMeter (Codesys)" dir=in action=allow program=" C:\Program Files (x86)\CodeMeter\Runtime\bin\CodeMeter.exe" enable=yes`~~
 - e) In task/traybar (Windows Clock)
   + RightClick --> CmContainers (CodeMeter) > WebAdmin > Configuration > Set manual proxy : `proxy.etn.com:8080`
 
