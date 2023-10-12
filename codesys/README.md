@@ -26,7 +26,7 @@ You should find all the necessary in the folder above. Process each step sequent
   + **use file**: `SMP DA-3000 Firmware and Tools 1.0B18.exe`
 - b) Install CoDeSys `3.5.18.40 64bit` __NOTHING ELSE IS SUPPORTED__
   + **use file**: `\\casrospfp01\Public\USERS\Dominique.Brochu\Codesys` `CODESYS 64 3.5.18.40.exe` 1.482GB ~~CODESYS 64 3.5.19.20.exe~~
-- c) Use Codesys Installer
+- c) Use Codesys Installer (Run as Administrator)
   + Click --> Install Files > Select(`SMP.package`)
   + Optional : Click --> Change > Import Configuration > Select(`3PSP19config.installation-config`)
 - d) Use Cmd (administrator)
