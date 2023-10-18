@@ -103,6 +103,12 @@ cd /var/smp/conf
 - copy par configuration file
 - `reboot now`
 
+6. license file
+```
+ls -lahs /var/smp/system/conf/
+cat /var/smp/system/conf/license.dat
+```
+- drop a license file if none in the folder.
 ---
 
 # HOW to CoDeSys 
