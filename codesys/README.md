@@ -74,23 +74,28 @@ cat /etc/os-release #or sys-info
 
 - Procedure to update the firmware
 ```
-cd /var/smp/new 
-# copy boot firmware file in folder
-reboot now
-
 cd /var/smp/new
+```
+# copy boot firmware file in folder
+```reboot now```
+
+```
+cd /var/smp/new
+```
 # copy set firmware file in folder
 reboot now
 
+```
 cd /var/smp/new
-# copy dev firmware file in folder and
+```
+# copy dev firmware file in folder
 reboot now
 
-cd /var/smp/conf
-# copy par configuration file
-# copy hw.xml //captured from the debug menu
-# reboot now
 ```
+cd /var/smp/conf
+```
+# copy par configuration file
+# reboot now
 
 ---
 
