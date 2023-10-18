@@ -85,25 +85,18 @@ reboot now
 3.
 ```
 cd /var/smp/new
-# copy **set** firmware file in folder
-reboot now
-```
-
-4.
-```
-cd /var/smp/new
 # copy **dev** firmware file in folder
 reboot now
 ```
 
-5.
+4.
 ```
 cd /var/smp/conf
 ```
 - copy par configuration file
 - `reboot now`
 
-6. license file
+5. license file
 ```
 ls -lahs /var/smp/system/conf/
 cat /var/smp/system/conf/license.dat
