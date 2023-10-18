@@ -76,26 +76,28 @@ cat /etc/os-release #or sys-info
 ```
 cd /var/smp/new
 ```
-# copy boot firmware file in folder
-```reboot now```
+- copy boot firmware file in folder
+```
+reboot now
+```
 
 ```
 cd /var/smp/new
-```
 # copy set firmware file in folder
 reboot now
+```
 
 ```
 cd /var/smp/new
-```
 # copy dev firmware file in folder
 reboot now
+```
 
 ```
 cd /var/smp/conf
 ```
-# copy par configuration file
-# reboot now
+- copy par configuration file
+- `reboot now`
 
 ---
 
