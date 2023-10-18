@@ -67,12 +67,13 @@ Reference :
 - [ ] We use `ssh` for the following tasks.
 - [ ] **FIRMWARE** Location : `\\casrospfp01\Official Builds\DA\1.0R\Components\Firmware\Images\SMPDA3050\001.000.026.000\Export\smp`.
 
+1. 
 ```
 #check version installed
 cat /etc/os-release #or sys-info
 ```
 
-- Procedure to update the firmware
+2. 
 ```
 cd /var/smp/new
 ```
@@ -81,18 +82,21 @@ cd /var/smp/new
 reboot now
 ```
 
+3.
 ```
 cd /var/smp/new
-# copy set firmware file in folder
+# copy **set** firmware file in folder
 reboot now
 ```
 
+4.
 ```
 cd /var/smp/new
-# copy dev firmware file in folder
+# copy **dev** firmware file in folder
 reboot now
 ```
 
+5.
 ```
 cd /var/smp/conf
 ```
