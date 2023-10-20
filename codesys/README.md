@@ -77,7 +77,11 @@ cat /etc/os-release #or sys-info
 ```
 cd /var/smp/new
 ```
-- copy boot firmware file in folder
+
+```
+# copy boot firmware file in folder using MobaXterm (drag and drop)
+```
+
 ```
 reboot now
 ```
