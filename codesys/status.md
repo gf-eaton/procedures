@@ -59,7 +59,7 @@ In a week I can say we are pretty much advance on the CoDeSys :
    - [ ] BIT
  - [ ] AF need to be understood (deeper dive)
  - [x] Benchmarks
-   - [x] initiatze ? (1ms)
+   - [x] initiatze ? (~0ms)
    - [ ] Transition ?
    - [ ] State ? 
 
