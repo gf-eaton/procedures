@@ -58,7 +58,7 @@ In a week I can say we are pretty much advance on the CoDeSys :
    - [x] MODBUS Client
    - [ ] BIT
    - [ ] UNIT (unsupported)
- - [x] AF need to be understood (deeper dive)
+ - [x] AF need to be understood (deeper dive) (initiated)
  - [x] Benchmarks
    - [x] initialize ? (~0ms)
    - [ ] Transition ? (~ ms)
