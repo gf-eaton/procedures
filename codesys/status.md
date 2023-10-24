@@ -45,9 +45,9 @@ In a week I can say we are pretty much advance on the CoDeSys :
         
 ### Known Issues
  - [ ] Network stability and speed (Warrendale)
- - [ ] .211 useable due to mapping issue and some other. Need to be worked/refurshised.
+ - [ ] .211 unusable due to mapping issue (values badly passed). Need to be worked/refurshised.
 
-## Week 2023-10-23 @ 2023-10-27 `WE ARE HERE`
+## `--->` Week 2023-10-23 @ 2023-10-27 `WE ARE HERE`
  - [x] Brossard office racks not ready, none of the required was purchased for the rack/cabinet
  - [x] Using 172.130.129.215 most stable
  - [x] Flexible prototype running
