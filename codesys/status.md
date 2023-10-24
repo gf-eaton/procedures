@@ -28,8 +28,8 @@ In a week I can say we are pretty much advance on the CoDeSys :
 
 ### Known Issues
  - [ ] a bug exist in the sync mapping tool (plc to smp now)
-     - we need to ask EAS the PUB/SUB .par file
- - [ ] WORKAROUND move to 3.5.18 should be next (from 3.5.19)
+     - we need to ask EAS the PUB/SUB .par file (done fix EAS)
+ - [x] WORKAROUND use codesys version 3.5.18 (instead of 3.5.19)
 
 ## Week : 2023-10-16 @ 2023-10-20
  - [x] Montreal office closed, moved to Brossard no access to DA-3000
@@ -41,12 +41,12 @@ In a week I can say we are pretty much advance on the CoDeSys :
    - [x] Some difficulties with smp manager (get configuration file) not everyone has the issues
      - [ ] J was ok G not working for a complete week
      - [x] WORKAROUND get config file via ssh (.215)
-     - [ ] POSSIBLE WORKAROUND NEW version of smp manager is available b27700
+     - [ ] POSSIBLE WORKAROUND NEW version of smp manager is available b27700 (or use daily build)
         
 ### Known Issues
- - [ ] Network stability and speed (workable but benchmark shows degradation) (Warrendale).
- - [ ] .211 unusable due to mapping issue (values badly passed). Need to be worked/refurshised.
- - [ ] .214 unable to connect the device on the codesys side. Resulting in not able to debug source code.
+ - [ ] Network stability and speed (workable but benchmark shows degradation of 10.130.129.* compared to 166.99.230.* ) (Warrendale).
+ - [ ] Device .211 : unusable due to mapping issue (values badly passed). Need to be worked/refurshised.
+ - [ ] Device .214 : unable to connect the device on the codesys side. Resulting in not able to debug source code.
 
 ## `--->` Week 2023-10-23 @ 2023-10-27 `WE ARE HERE`
  - [x] Brossard office racks not ready, none of the required was purchased for the rack/cabinet
