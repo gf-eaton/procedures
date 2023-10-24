@@ -57,14 +57,18 @@ In a week I can say we are pretty much advance on the CoDeSys :
    - [x] REAL
    - [x] MODBUS Client
    - [ ] BIT
- - [ ] AF need to be understood (deeper dive)
+   - [ ] UNIT (unsupported)
+ - [x] AF need to be understood (deeper dive)
  - [x] Benchmarks
    - [x] initialize ? (~0ms)
    - [ ] Transition ?
    - [ ] State Check ?
+   - [ ] Points SMP --> PLC ?
+   - [ ] Points PLC --> SMP ?
 
 ### Known Issues
  - [x] UINT not supported for SMP to PLC
  - [x] FLOAT precision limitation 23 bit used
- - [ ] 
+ - [ ] NTP Syncronization not working
+
 ---
