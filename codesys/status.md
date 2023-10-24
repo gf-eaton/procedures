@@ -44,8 +44,9 @@ In a week I can say we are pretty much advance on the CoDeSys :
      - [ ] POSSIBLE WORKAROUND NEW version of smp manager is available b27700
         
 ### Known Issues
- - [ ] Network stability and speed (workable but benchmark shows degradation) (Warrendale)
+ - [ ] Network stability and speed (workable but benchmark shows degradation) (Warrendale).
  - [ ] .211 unusable due to mapping issue (values badly passed). Need to be worked/refurshised.
+ - [ ] .214 unable to connect the device on the codesys side. Resulting in not able to debug source code.
 
 ## `--->` Week 2023-10-23 @ 2023-10-27 `WE ARE HERE`
  - [x] Brossard office racks not ready, none of the required was purchased for the rack/cabinet
