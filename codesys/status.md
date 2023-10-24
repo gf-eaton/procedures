@@ -31,7 +31,7 @@ In a week I can say we are pretty much advance on the CoDeSys :
      - we need to ask EAS the PUB/SUB .par file
  - [ ] WORKAROUND move to 3.5.18 should be next (from 3.5.19)
 
-## Week : 2023-10-16 @ 20
+## Week : 2023-10-16 @ 2023-10-20
  - [x] Montreal office closed, moved to Brossard no access to DA-3000
  - [x] Update and test Warrendale DA-3000 devices (3)
    - [x] .211 produce mapping inconsistency SMP to PLC
@@ -47,7 +47,7 @@ In a week I can say we are pretty much advance on the CoDeSys :
  - [ ] Network stability and speed (Warrendale)
  - [ ] .211 useable due to mapping issue and some other. Need to be worked/refurshised.
 
-## Week 2023-10-23 @ 27
+## Week 2023-10-23 @ 2023-10-27 `WE ARE HERE`
  - [x] Brossard office racks not ready, none of the required was purchased for the rack/cabinet
  - [x] Using 172.130.129.215 most stable
  - [x] Flexible prototype running
@@ -61,14 +61,22 @@ In a week I can say we are pretty much advance on the CoDeSys :
  - [x] AF need to be understood (deeper dive)
  - [x] Benchmarks
    - [x] initialize ? (~0ms)
-   - [ ] Transition ?
-   - [ ] State Check ?
+   - [ ] Transition ? (~ ms)
+   - [ ] State Check ? (~ ms)
    - [ ] Points SMP --> PLC ?
    - [ ] Points PLC --> SMP ?
 
 ### Known Issues
- - [x] UINT not supported for SMP to PLC
- - [x] FLOAT precision limitation 23 bit used
+ - [ ] UINT not supported for SMP to PLC
+ - [ ] FLOAT precision limitation 23 bit used
  - [ ] NTP Syncronization not working
 
+
+---
+
+## Week 2023-10-30 @ 2023-11-03
+ - [ ] Brossard office still in moving mode
+
+
+## Week 2023-11-06 @ 2023-11-06
 ---
