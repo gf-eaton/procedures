@@ -57,8 +57,21 @@ In a week I can say we are pretty much advance on the CoDeSys :
    - [x] INT
    - [x] REAL
    - [x] MODBUS Client
-   - [ ] BIT
+   - [x] BIT
    - [ ] UNIT (unsupported)
+ - [ ] Imported/Used (Analog Input/Binary Input) from PXMC parfile
+   - [x] BMS (12) (~~1~~)
+   - [x] CT (4) (~~1~~)
+   - [x] GEN 1 (6) (18)
+   - [ ] GEN 2 (6) (18)
+   - [x] PCS (10) (8)
+   - [x] RIO (~~1~~) (8)
+   - [x] RN PV1 (5) (2)
+   - [ ] RN PV2-4 (15) (6)
+   - [x] SRC (9) (~~1~~)
+   - [ ] TEST point from .225 (9) (0)
+   - [ ] CONF point (15) (0)
+   - [ ] Total MODBUS points : 81 - duplicates addr + 15 + 9 ==  `±105 points`
  - [x] AF need to be understood (deeper dive) (initiated)
  - [x] Benchmarks
    - [x] initialize ? (~0ms)
@@ -80,4 +93,6 @@ In a week I can say we are pretty much advance on the CoDeSys :
 
 
 ## Week 2023-11-06 @ 2023-11-06
+ - [ ] Brossard office should be done first day in the office all together
+
 ---
