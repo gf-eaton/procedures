@@ -38,13 +38,13 @@ In a week I can say we are pretty much advance on the CoDeSys :
    - [x] .214 unit firmware updated model DA-3050
    - [x] .215 unit firmware update model `DA-3052` / but we used `DA-3053 in config`
      - [x] model seems not to match the HW
-   - [x] Some difficulties with smp manager (get configuration file) not everyone has issues
+   - [x] Some difficulties with smp manager (get configuration file) not everyone has the issues
      - [ ] J was ok G not working for a complete week
      - [x] WORKAROUND get config file via ssh (.215)
      - [ ] POSSIBLE WORKAROUND NEW version of smp manager is available b27700
         
 ### Known Issues
- - [ ] Network stability and speed
+ - [ ] Network stability and speed (Warrendale)
  - [ ] .211 useable due to mapping issue and some other. Need to be worked/refurshised.
 
 ## Week 2023-10-23 @ 27
