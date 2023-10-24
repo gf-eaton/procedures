@@ -31,4 +31,40 @@ In a week I can say we are pretty much advance on the CoDeSys :
      - we need to ask EAS the PUB/SUB .par file
  - [ ] WORKAROUND move to 3.5.18 should be next (from 3.5.19)
 
+## Week : 2023-10-16 @ 20
+ - [x] Montreal office closed, moved to Brossard no access to DA-3000
+ - [x] Update and test Warrendale DA-3000 devices (3)
+   - [x] .211 produce mapping inconsistency SMP to PLC
+   - [x] .214 unit firmware updated model DA-3050
+   - [x] .215 unit firmware update model `DA-3052` / but we used `DA-3053 in config`
+     - [x] model seems not to match the HW
+   - [x] Some difficulties with smp manager (get configuration file) not everyone has issues
+     - [ ] J was ok G not working for a complete week
+     - [x] WORKAROUND get config file via ssh (.215)
+     - [ ] POSSIBLE WORKAROUND NEW version of smp manager is available b27700
+        
+### Known Issues
+ - [ ] Network stability and speed
+ - [ ] .211 useable due to mapping issue and some other. Need to be worked/refurshised.
+
+## Week 2023-10-23 @ 27
+ - [x] Brossard office racks not ready, none of the required was purchased for the rack/cabinet
+ - [x] Using 172.130.129.215 most stable
+ - [x] Flexible prototype running
+   - [ ] Goal is to used and validate simple, efficient method without lossing on functionalities
+ - [x] Tested
+   - [x] INT
+   - [x] REAL
+   - [x] MODBUS Client
+   - [ ] BIT
+ - [ ] AF need to be understood (deeper dive)
+ - [x] Benchmarks
+   - [x] initiatze ? (1ms)
+   - [ ] Transition ?
+   - [ ] State ? 
+
+### Known Issues
+ - [x] UINT not supported for SMP to PLC
+ - [x] FLOAT precision limitation 23 bit used
+ - [ ] 
 ---
