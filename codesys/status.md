@@ -44,7 +44,7 @@ In a week I can say we are pretty much advance on the CoDeSys :
      - [ ] POSSIBLE WORKAROUND NEW version of smp manager is available b27700
         
 ### Known Issues
- - [ ] Network stability and speed (Warrendale)
+ - [ ] Network stability and speed (workable but benchmark shows degradation) (Warrendale)
  - [ ] .211 unusable due to mapping issue (values badly passed). Need to be worked/refurshised.
 
 ## `--->` Week 2023-10-23 @ 2023-10-27 `WE ARE HERE`
