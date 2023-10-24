@@ -69,9 +69,9 @@ In a week I can say we are pretty much advance on the CoDeSys :
    - [x] RN PV1 (5) (2)
    - [ ] RN PV2-4 (15) (6)
    - [x] SRC (9) (~~1~~)
-   - [ ] TEST point from .225 (9) (0)
-   - [ ] CONF point (15) (0)
-   - [ ] Total MODBUS points : 81 - duplicates addr + 15 + 9 ==  `±105 points`
+   - [x] TEST point from .225 (9) (0)
+   - [x] CONF point (15) (0)
+   - [x] Total MODBUS points : 81 - duplicates addr + 15 + 9 ==  `±105 points`
  - [x] AF need to be understood (deeper dive) (initiated)
  - [x] Benchmarks
    - [x] initialize ? (~0ms)
