@@ -101,7 +101,7 @@ In a week I can say we are pretty much advance on the CoDeSys :
 - [x] sync macro/function only work with codesys version 3.5.18.
 - [ ] UINT32 (two registers uint16_t) not supported when passing (usinged INT) from SMP to PLC (DWORD).
   - Limit of uint32_t is `2^32-1` == `4,294,967,295`
-  - Limit of int32_t is `-2,147,483,649` to `2,147,483,647`
+  - Limit of int32_t is `-2^31` == `-2,147,483,649` to `2^31-1` == `2,147,483,647`
 - [ ] FLOAT precision limitation `23 bits` used lost of precision avoid this type.
   - LIMIT without any lost of precision is `2^23-1` == `8 388 607`.
 - [ ] NTP Client time syncronization not working.
