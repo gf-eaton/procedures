@@ -33,9 +33,9 @@ You should find all the necessary in the folder above. Process each step sequent
 
 References :
 - SMP Gateway Tool 8.3D 2023-10-21 b70600
-  - `\\casrospfp01\Daily Builds\SMP\SoftAndTools\Current\Packages\Deliveries\CD_COOPER\008.003.706.000\Export\CD_COOPER\SMP Software and Tools\SMP Tools`
+  - ```\\casrospfp01\Daily Builds\SMP\SoftAndTools\Current\Packages\Deliveries\CD_COOPER\008.003.706.000\Export\CD_COOPER\SMP Software and Tools\SMP Tools```
 - SMP config for DA series
-  - **1.0C3** `\\casrospfp01\Official Builds\DA\1.0R\Packages\Deliveries\CD_COOPER\001.000.028.000\Export\CD_COOPER\SMPDA3000\CD_COOPER\Firmware and Tools\SMP Tools`
+  - **1.0C3** ```\\casrospfp01\Official Builds\DA\1.0R\Packages\Deliveries\CD_COOPER\001.000.028.000\Export\CD_COOPER\SMPDA3000\CD_COOPER\Firmware and Tools\SMP Tools```
   + **1.0B18** `\\casrospfp01\Official Builds\DA\1.0R\Packages\Deliveries\CD_COOPER\001.000.026.000\Export\CD_COOPER\SMPDA3000\CD_COOPER\Firmware and Tools\SMP Tools`
 - SMP library for CoDeSys
   + `\\casrospfp01\Daily Builds\SMP\SoftAndTools\Current\Components\Tools\CODESYS\`
