@@ -66,8 +66,8 @@ References :
 
 - [ ] We use `ssh` for the following tasks.
 - [ ] **FIRMWARE** Location :
-  - `\\casrospfp01\Official Builds\DA\1.0R\Components\Firmware\Images\SMPDA3050\001.000.028.000\Export\smp` `B19`
-  - `\\casrospfp01\Official Builds\DA\1.0R\Components\Firmware\Images\SMPDA3050\001.000.026.000\Export\smp` `B18`
+  - **B19** `\\casrospfp01\Official Builds\DA\1.0R\Components\Firmware\Images\SMPDA3050\001.000.028.000\Export\smp` `B19`
+  - **B18** DO NOT USE bug with AF
 
 1. 
 ```
