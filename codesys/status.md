@@ -95,4 +95,17 @@ In a week I can say we are pretty much advance on the CoDeSys :
 ## Week 2023-11-06 @ 2023-11-06
  - [ ] Brossard office should be done first day in the office all together
 
+
+# Summary of known issues/limitations
+
+- [x] sync macro/function only work with codesys version 3.5.18.
+- [ ] UINT32 (two registers uint16_t) not supported when passing (usinged INT) from SMP to PLC (DWORD).
+  - Limit of uint32_t is `2^32-1` == `4,294,967,295`
+  - Limit of int32_t is `-2,147,483,649` to `2,147,483,647`
+- [ ] FLOAT precision limitation `23 bits` used lost of precision avoid this type.
+  - LIMIT without any lost of precision is `2^23-1` == `8 388 607`.
+- [ ] NTP Client time syncronization not working.
+- [ ] Device .211 : is unusable due to mapping issue (values badly passed).
+- [ ] Device .214 : we are unable to connect the device on the codesys side. Resulting in not able to debug source code.
+
 ---
