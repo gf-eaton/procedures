@@ -23,20 +23,18 @@ You should find all the necessary in the folder above. Process each step sequent
 
 - a) Install SMP manager
   + **use file**: `SMP Gateway Software and Tools 8.3D 2023_08_03 b64000.exe`
-  + **use file**: `SMP DA-3000 Firmware and Tools 1.0B18.exe`
+  + **use file**:  see reference **`1.0C19`**
 - b) Install CoDeSys `3.5.18.40 64bit` __NOTHING ELSE IS SUPPORTED__
-  + **use file**: `\\casrospfp01\Public\USERS\Dominique.Brochu\Codesys` `CODESYS 64 3.5.18.40.exe` 1.482GB ~~CODESYS 64 3.5.19.20.exe~~
+  + **use file**: `\\casrospfp01\Public\USERS\Dominique.Brochu\Codesys` `CODESYS 64 3.5.18.40.exe` 1.482GB 
 - c) Use Codesys Installer (Run as Administrator)
   + Click --> Install Files > Select(`SMP.package`)
-  + Optional : ~~Click --> Change > Import Configuration > Select(`3PSP19config.installation-config`)~~
-- d) Use Cmd (administrator)
-  + Optional : ~~`netsh advfirewall firewall add rule name="CodeMeter (Codesys)" dir=in action=allow program=" C:\Program Files (x86)\CodeMeter\Runtime\bin\CodeMeter.exe" enable=yes`~~
-- e) In task/traybar (Windows Clock)
+- d) In task/traybar (Windows Clock)
   + RightClick --> CmContainers (CodeMeter) > WebAdmin > Configuration > Set manual proxy : `proxy.etn.com:8080`
 
 Reference :
 - SMP config (tool)
-  + `\\casrospfp01\Official Builds\DA\1.0R\Packages\Deliveries\CD_COOPER\001.000.026.000\Export\CD_COOPER\SMPDA3000\CD_COOPER\Firmware and Tools\SMP Tools`
+  - **1.0C3** `\\casrospfp01\Official Builds\DA\1.0R\Packages\Deliveries\CD_COOPER\001.000.028.000\Export\CD_COOPER\SMPDA3000\CD_COOPER\Firmware and Tools\SMP Tools`
+  + **1.0B18** `\\casrospfp01\Official Builds\DA\1.0R\Packages\Deliveries\CD_COOPER\001.000.026.000\Export\CD_COOPER\SMPDA3000\CD_COOPER\Firmware and Tools\SMP Tools`
 - SMP library for CoDeSys
   + `\\casrospfp01\Daily Builds\SMP\SoftAndTools\Current\Components\Tools\CODESYS\`
  
@@ -65,7 +63,9 @@ Reference :
 ## of DA-3000 (optional)
 
 - [ ] We use `ssh` for the following tasks.
-- [ ] **FIRMWARE** Location : `\\casrospfp01\Official Builds\DA\1.0R\Components\Firmware\Images\SMPDA3050\001.000.026.000\Export\smp`.
+- [ ] **FIRMWARE** Location :
+  - `\\casrospfp01\Official Builds\DA\1.0R\Components\Firmware\Images\SMPDA3050\001.000.028.000\Export\smp` `B19`
+  - `\\casrospfp01\Official Builds\DA\1.0R\Components\Firmware\Images\SMPDA3050\001.000.026.000\Export\smp` `B18`
 
 1. 
 ```
