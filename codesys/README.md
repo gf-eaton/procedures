@@ -23,7 +23,7 @@ You should find all the necessary in the folder above. Process each step sequent
 
 - a) Install SMP manager
   + **use file**: `SMP Gateway Software and Tools 8.3D 2023_08_03 b64000.exe`
-  + **use file**:  see reference **`1.0C19`**
+  + **use file**:  see reference **`1.0C3`**
 - b) Install CoDeSys `3.5.18.40 64bit` __NOTHING ELSE IS SUPPORTED__
   + **use file**: `\\casrospfp01\Public\USERS\Dominique.Brochu\Codesys` `CODESYS 64 3.5.18.40.exe` 1.482GB 
 - c) Use Codesys Installer (Run as Administrator)
