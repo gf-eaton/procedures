@@ -22,8 +22,8 @@ Do not alter files in folder `\\casrospfp01\Public\USERS\Guy Francoeur` as they 
 You should find all the necessary in the folder above. Process each step sequentially.
 
 - a) Install SMP manager
-  + **use file**: `SMP Gateway Software and Tools 8.3D 2023_08_03 b64000.exe`
-  + **use file**:  see reference **`1.0C3`**
+  + **use file**: see reference **`8.3D 2023-10-21 b70600`**
+  + **use file**: see reference **`1.0C3`**
 - b) Install CoDeSys `3.5.18.40 64bit` __NOTHING ELSE IS SUPPORTED__
   + **use file**: `\\casrospfp01\Public\USERS\Dominique.Brochu\Codesys` `CODESYS 64 3.5.18.40.exe` 1.482GB 
 - c) Use Codesys Installer (Run as Administrator)
@@ -31,7 +31,7 @@ You should find all the necessary in the folder above. Process each step sequent
 - d) In task/traybar (Windows Clock)
   + RightClick --> CmContainers (CodeMeter) > WebAdmin > Configuration > Set manual proxy : `proxy.etn.com:8080`
 
-Reference :
+References :
 - SMP Gateway Tool 8.3D 2023-10-21 b70600
   - `\\casrospfp01\Daily Builds\SMP\SoftAndTools\Current\Packages\Deliveries\CD_COOPER\008.003.706.000\Export\CD_COOPER\SMP Software and Tools\SMP Tools`
 - SMP config for DA series
