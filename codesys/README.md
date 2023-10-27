@@ -16,6 +16,7 @@ All the steps are included in one HOW TO file (for now)
   + Workaround is to use 3.5.18.40 The only supported version as of 2023-10-11.
 
 # Step 0 installation
+## Installation of CoDeSys and SMP Manager on your PC
 
 Do not alter files in folder `\\casrospfp01\Public\USERS\Guy Francoeur` as they are used by everyone
 
@@ -39,8 +40,11 @@ References :
   + **1.0B18** `\\casrospfp01\Official Builds\DA\1.0R\Packages\Deliveries\CD_COOPER\001.000.026.000\Export\CD_COOPER\SMPDA3000\CD_COOPER\Firmware and Tools\SMP Tools`
 - SMP library for CoDeSys
   + `\\casrospfp01\Daily Builds\SMP\SoftAndTools\Current\Components\Tools\CODESYS\`
- 
+
+---
+
 # Step 1 validate installation
+## Start using installation of SMP Manager, SMP Config, CoDeSys
 
 **At this point you should have :** `smpmanager, codesys, smp lib for codesys` installed.
 
@@ -60,11 +64,11 @@ References :
 
 ---
 
-
 # How to update firmware
 ## of DA-3000 (optional)
 
-- [ ] We use `ssh` for the following tasks.
+We use `ssh` for the following tasks.
+ 
 - [ ] **FIRMWARE** Location :
   - **1.0C3** `\\casrospfp01\Official Builds\DA\1.0R\Components\Firmware\Images\SMPDA3050\001.000.028.000\Export\smp`
   - **B18** DO NOT USE bug with AF
@@ -110,6 +114,7 @@ ls -lahs /var/smp/system/conf/
 cat /var/smp/system/conf/license.dat
 ```
 - drop a license file if none in the folder.
+
 ---
 
 # HOW to CoDeSys 
