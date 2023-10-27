@@ -66,13 +66,15 @@ References :
 
 - [ ] We use `ssh` for the following tasks.
 - [ ] **FIRMWARE** Location :
-  - **B19** `\\casrospfp01\Official Builds\DA\1.0R\Components\Firmware\Images\SMPDA3050\001.000.028.000\Export\smp` `B19`
+  - **1.0C3** `\\casrospfp01\Official Builds\DA\1.0R\Components\Firmware\Images\SMPDA3050\001.000.028.000\Export\smp`
   - **B18** DO NOT USE bug with AF
 
 1. 
 ```
 #check version installed
-cat /etc/os-release #or sys-info
+cat /etc/os-release
+sleep(8)
+sys-info
 ```
 
 2. 
