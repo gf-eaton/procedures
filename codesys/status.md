@@ -91,7 +91,9 @@ In a week I can say we are pretty much advance on the CoDeSys :
 ## Week 2023-10-30 @ 2023-11-03
  - [x] Brossard office still in moving mode
    -  Unavailability or limited access to network and equipments
-   -  No communication about status
+   -  No communication about or status of Brossard progresses
+ - [ ] Use Yassine's device to investigate issues
+ - [ ] 
 
 ### Known Issues 
 - 1.0C3
@@ -124,5 +126,8 @@ In a week I can say we are pretty much advance on the CoDeSys :
 - [ ] Performance/Botleneck
   - Disk IO > 35% to 85% constant
   - CPU 4x 8% to 25% constant
+- [ ] API missing
+  - /api/data/v2/points?details=true
+- [ ] .I (Int) .R (real) Why keep two values (confusing)? Struct { .E (event) .V (value) .S (scale) .T (type) }.
 
 ---
