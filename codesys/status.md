@@ -89,14 +89,23 @@ In a week I can say we are pretty much advance on the CoDeSys :
 ---
 
 ## Week 2023-10-30 @ 2023-11-03
- - [ ] Brossard office still in moving mode
+ - [x] Brossard office still in moving mode
+   -  Unavailability or limited access to network and equipments
+   -  No communication about status
+
+### Known Issues 
+ - [ ] 1.0C3
+   - smp-io-app process heavy on cpu (too many thread/children == 229) after 36 hours uptime --> 13hours of cpu time
+   - smp-rpc-core process heavy on cpu (too many thread/children == 46) after 36 hours uptime --> 5h27 of cpu time
+   - Disk IO > 35% to 85% constant
+   - CPU 4x 8% to 25% constant
 
 
-## Week 2023-11-06 @ 2023-11-06
+## Week 2023-11-06 @ 2023-11-10
  - [ ] Brossard office should be done first day in the office all together
 
 
-# Summary of known issues/limitations
+# Summary of known issues/limitations/
 
 - [x] sync macro/function only work with codesys version 3.5.18.
 - [ ] UINT32 (two registers uint16_t) not supported when passing (usinged INT) from SMP to PLC (DWORD).
@@ -107,5 +116,6 @@ In a week I can say we are pretty much advance on the CoDeSys :
 - [ ] NTP Client time syncronization not working.
 - [ ] Device .211 : is unusable due to mapping issue (values badly passed).
 - [ ] Device .214 : we are unable to connect the device on the codesys side. Resulting in not able to debug source code.
+- [ ] Device .215 : unavailable/connectivity issue during 10 days. Was version 1.0B18 now 1.0C3 (possible origin of issue : internal config/spec/model of device).
 
 ---
