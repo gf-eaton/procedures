@@ -105,7 +105,7 @@ In a week I can say we are pretty much advance on the CoDeSys :
  - [ ] Brossard office should be done first day in the office all together
 
 
-# Summary of known issues/limitations/
+# Summary of known issues/limitations/botlenecks
 
 ### version 1.0B18
 - [x] sync macro/function only work with codesys version 3.5.18.
