@@ -94,7 +94,7 @@ In a week I can say we are pretty much advance on the CoDeSys :
    -  No communication about status
 
 ### Known Issues 
- - [ ] 1.0C3
+- 1.0C3
    - smp-io-app process heavy on cpu (too many thread/children == 229) after 36 hours uptime --> 13hours of cpu time
    - smp-rpc-core process heavy on cpu (too many thread/children == 46) after 36 hours uptime --> 5h27 of cpu time
    - Disk IO > 35% to 85% constant
@@ -107,6 +107,7 @@ In a week I can say we are pretty much advance on the CoDeSys :
 
 # Summary of known issues/limitations/
 
+### version 1.0B18
 - [x] sync macro/function only work with codesys version 3.5.18.
 - [ ] UINT32 (two registers uint16_t) not supported when passing (usinged INT) from SMP to PLC (DWORD).
   - Limit of uint32_t is `2^32-1` == `4,294,967,295`
@@ -114,8 +115,14 @@ In a week I can say we are pretty much advance on the CoDeSys :
 - [ ] FLOAT precision limitation `23 bits` used lost of precision avoid this type.
   - LIMIT without any lost of precision is `2^23-1` == `8 388 607`.
 - [ ] NTP Client time syncronization not working.
-- [ ] Device .211 : is unusable due to mapping issue (values badly passed).
-- [ ] Device .214 : we are unable to connect the device on the codesys side. Resulting in not able to debug source code.
-- [ ] Device .215 : unavailable/connectivity issue during 10 days. Was version 1.0B18 now 1.0C3 (possible origin of issue : internal config/spec/model of device).
+- [ ] Device .211 w/ B18 : is unusable due to mapping issue (values badly passed).
+- [ ] Device .214 w/ B18 : we are unable to connect the device on the codesys side. Resulting in not able to debug source code.
+- [ ] Device .215 w/ B18 : unavailable/connectivity issue during 10 days. (possible origin of issue : internal config/spec/model of device).
+### version 1.0C3 
+- [ ] smp-io-app process heavy on cpu (too many thread/children == 229) after 36 hours uptime --> 13hours of cpu time
+- [ ] smp-rpc-core process heavy on cpu (too many thread/children == 46) after 36 hours uptime --> 5h27 of cpu time
+- [ ] Performance/Botleneck
+  - Disk IO > 35% to 85% constant
+  - CPU 4x 8% to 25% constant
 
 ---
